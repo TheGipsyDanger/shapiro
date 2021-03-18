@@ -1,14 +1,18 @@
-export interface IHome {
-  data: {
-    TEXT1: string;
-    TEXT2: string;
-    TEXT3: string;
-    TEXT4: string;
-    TEXT5: string;
-    TEXT6: string;
-    TEXT7: string;
-    TEXT8: string;
-  };
+import { IMapDays } from '~/utils';
+
+export interface IHomeList {
+  selectDay(day: string): void;
+  days: IMapDays[];
+}
+export interface IHomeListItem {
+  item: IMapDays;
+  index: number;
 }
 
-export interface IHomeLayout extends IHome {}
+export interface IHome {}
+export interface IHomeLayout extends IHome {
+  selectDay(day: string): void;
+  goToCreateEvent(): void;
+  goToCamera(): void;
+  days: IMapDays[];
+}

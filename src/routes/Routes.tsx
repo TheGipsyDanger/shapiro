@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as views from '../views';
 
@@ -20,7 +20,7 @@ const viewsNames = Object.keys(views);
 
 export default function Routes() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator mode="modal">
       {viewsNames.map(viewName => (
         <Stack.Screen key={viewName} {...defineRoutesProps(viewName)} />
       ))}

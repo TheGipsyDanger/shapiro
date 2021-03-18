@@ -1,3 +1,6 @@
 export { IModalType, IInsets } from './customTypes';
-export { IModalTypes, IModalContext, IModal } from './ModalInterfaces';
+export * from './ModalInterfaces';
+export * from './EventInterfaces';
+export * from './DateInterfaces';
+export * from './AlertInterfaces';
 // export interfaces

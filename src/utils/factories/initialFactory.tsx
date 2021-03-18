@@ -4,7 +4,7 @@ interface IInitialFactory {
 
 export function createInitialFactory(): IInitialFactory {
   function showName(): void {
-    return console.log(`createInitial`);
+    return console.log('createInitial');
   }
 
   return {

@@ -9,6 +9,10 @@ export interface IModalContext {
   backScale(): void;
 }
 
+export interface IImagesModal {
+  url: string;
+}
+
 export type IModal = { [key: string]: JSX.Element };
 
 export type IModalTypes = 'Initial';
