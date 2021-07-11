@@ -18,6 +18,5 @@ export { HorizontalCarousel } from './HorizontalCarousel';
 export { CameraButtons } from './CameraButtons';
 export { Toast } from './Toast';
 export { CameraEvent } from './CameraEvent';
-export { EventsOption } from './EventsOption';
 export { ActionButton } from './ActionButton';
 // Import component here
