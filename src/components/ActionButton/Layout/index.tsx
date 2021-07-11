@@ -7,10 +7,11 @@ import { IActionButtonLayout } from '../data';
 export const ActionButton: React.FC<IActionButtonLayout> = ({
   icon,
   onPress,
+  type = 'default',
 }) => (
   <Wrapped
     testID={`ActionButton`}
-    bg="primary"
+    bg={type == 'default' ? 'primary' : 'red'}
     position="absolute"
     shadow="iconVery"
     borderRadius="circle"

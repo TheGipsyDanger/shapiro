@@ -16,7 +16,7 @@ export const ImagesOfEvent: React.FC<IImagesOfEventLayout> = ({
     <Page>
       <StatusBar style="dark" />
       <ModalHeader title={`${currentEvent.name}`} />
-      <ActionButton onPress={() => {}} icon="delete" />
+      <ActionButton onPress={() => {}} icon="delete" type="delete" />
       <FlatList
         testID={`ImagesOfEvent`}
         numColumns={4}
