@@ -1,10 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import * as ICON from '@expo/vector-icons';
 
 import { Wrapped } from '../../Base/Wrapped';
 
-import { IIconLayout, IIconDefine } from '../data';
-import C from './styles';
+import { IIconLayout } from '../data';
 
 const Main = ({ lib, ...props }: IIconLayout) => {
   // @ts-ignore

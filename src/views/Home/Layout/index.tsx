@@ -11,6 +11,7 @@ import {
   Wrapped,
   Spotlight,
   HomeHeader,
+  ActionButton,
 } from '~/components';
 
 import { IHomeLayout, IHomeList, IHomeListItem } from '../data';
@@ -35,22 +36,6 @@ const List = ({ days, selectDay }: IHomeList) => (
   </Wrapped>
 );
 
-const ActionButton = ({ onPress }: any) => (
-  <Wrapped
-    bg="primary"
-    position="absolute"
-    shadow="iconVery"
-    borderRadius="circle"
-    right={16}
-    bottom={16}
-    height={56}
-    width={56}>
-    <Wrapped {...{ onPress }} flex={1} center>
-      <Icon name="camera" color="white" size={30} />
-    </Wrapped>
-  </Wrapped>
-);
-
 export const Home: React.FC<IHomeLayout> = ({
   goToCamera,
   goToCreateEvent,
@@ -68,7 +53,7 @@ export const Home: React.FC<IHomeLayout> = ({
           <Spotlight />
         </Wrapped>
       </Scroll>
-      <ActionButton onPress={goToCamera} />
+      <ActionButton onPress={goToCamera} icon="camera" />
     </Page>
   </Linear>
 );

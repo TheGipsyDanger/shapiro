@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FlatList } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
-import { ModalHeader, Page, Wrapped, Text, Scroll } from '~/components';
+import { ModalHeader, Page, Wrapped, ActionButton } from '~/components';
 
 import { IImagesOfEventLayout } from '../data';
 
@@ -16,6 +16,7 @@ export const ImagesOfEvent: React.FC<IImagesOfEventLayout> = ({
     <Page>
       <StatusBar style="dark" />
       <ModalHeader title={`${currentEvent.name}`} />
+      <ActionButton onPress={() => {}} icon="delete" />
       <FlatList
         testID={`ImagesOfEvent`}
         numColumns={4}
