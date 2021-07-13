@@ -26,11 +26,15 @@ export const Modal: React.FC<IModal> = ({
 };
 
 export const ModalTitle: React.FC = ({ children }) => (
-  <Text mb={1}>{children}</Text>
+  <Text font="medium" mb={1}>
+    {children}
+  </Text>
 );
 
 export const ModalDescription: React.FC = ({ children }) => (
-  <Text mb={4}>{children}</Text>
+  <Text size={4} mb={4}>
+    {children}
+  </Text>
 );
 
 export const ModalItem: React.FC = ({ children }) => (
