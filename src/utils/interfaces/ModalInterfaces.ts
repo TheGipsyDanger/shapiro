@@ -1,18 +1,11 @@
+export type IModalNames = 'default' | 'ModalQuestion';
+
+export type IFunctions = Array<(params?: any) => any>;
 export interface IModalContext {
-  modalType: string;
-  toClose: boolean;
-  showModal: boolean;
-  scale: boolean;
-  openModal(modal: IModalTypes): void;
+  modalName: string;
+  modalIsOpen: boolean;
+  functions: IFunctions;
   closeModal(): void;
-  removeModal(): void;
-  backScale(): void;
+  openModal(name: IModalNames): void;
+  defineFunctions(functions: IFunctions): void;
 }
-
-export interface IImagesModal {
-  url: string;
-}
-
-export type IModal = { [key: string]: JSX.Element };
-
-export type IModalTypes = 'Initial';

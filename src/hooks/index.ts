@@ -1,6 +1,7 @@
 export * from './Theme';
 export * from './Storage';
 export * from './Alert';
-export { EventProvider, useEvent } from './Event';
-export { DateProvider, useDate } from './Date';
+export * from './Modal';
+export * from './Event';
+export * from './Date';
 // Import hooks here

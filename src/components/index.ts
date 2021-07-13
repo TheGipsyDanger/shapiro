@@ -19,4 +19,6 @@ export { CameraButtons } from './CameraButtons';
 export { Toast } from './Toast';
 export { CameraEvent } from './CameraEvent';
 export { ActionButton } from './ActionButton';
+export { ModalQuestion } from './ModalQuestion';
+export { ModalController } from './ModalController';
 // Import component here

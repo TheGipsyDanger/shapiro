@@ -2,9 +2,15 @@ import * as React from 'react';
 import * as Font from 'expo-font';
 import { useState } from 'react';
 import AppLoading from 'expo-app-loading';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 
-import { GlobalProvider, Intro, Toast } from './src/components';
+import {
+  Intro,
+  Toast,
+  GlobalProvider,
+  ModalController,
+} from './src/components';
 
 import { useStorage } from './src/hooks';
 import Routes from './src/routes/Routes';
@@ -60,12 +66,15 @@ const App: React.FC = () => {
     );
 
   return (
-    <NavigationContainer>
-      <GlobalProvider>
-        {goToIntro ? <Intro onTutorialDone={onTutorialDone} /> : <Routes />}
-        <Toast />
-      </GlobalProvider>
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <GlobalProvider>
+          {goToIntro ? <Intro onTutorialDone={onTutorialDone} /> : <Routes />}
+          <Toast />
+          <ModalController />
+        </GlobalProvider>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 };
 

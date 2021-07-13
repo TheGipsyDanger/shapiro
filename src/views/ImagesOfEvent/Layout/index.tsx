@@ -10,13 +10,13 @@ import C from './styles';
 
 export const ImagesOfEvent: React.FC<IImagesOfEventLayout> = ({
   goTo,
+  showAlert,
   currentEvent,
 }) => (
   <Wrapped flex={1} bg="white">
     <Page>
       <StatusBar style="dark" />
       <ModalHeader title={`${currentEvent.name}`} />
-      <ActionButton onPress={() => {}} icon="delete" type="delete" />
       <FlatList
         testID={`ImagesOfEvent`}
         numColumns={4}
@@ -33,6 +33,7 @@ export const ImagesOfEvent: React.FC<IImagesOfEventLayout> = ({
         )}
         keyExtractor={(_, index: number) => String(index)}
       />
+      <ActionButton onPress={showAlert} icon="delete" type="delete" />
     </Page>
   </Wrapped>
 );

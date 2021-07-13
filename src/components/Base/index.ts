@@ -5,3 +5,4 @@ export { Scroll } from './Scroll';
 export { Icon } from './Icon';
 export { Card } from './Card';
 export { Linear } from './Linear';
+export { Modal } from './Modal';

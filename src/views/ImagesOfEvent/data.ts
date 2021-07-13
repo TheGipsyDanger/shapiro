@@ -6,5 +6,6 @@ export interface IImagesOfEvent {
 
 export interface IImagesOfEventLayout extends IImagesOfEvent {
   currentEvent: IEvent;
+  showAlert(): void;
   goTo(imageIndex: number): void;
 }

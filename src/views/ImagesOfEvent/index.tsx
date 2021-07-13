@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-import { useEvent } from '~/hooks';
+import { useEvent, useModal } from '~/hooks';
 
 import { IImagesOfEvent } from './data';
 import { ImagesOfEvent as Layout } from './Layout';
 
 export const ImagesOfEvent: React.FC<IImagesOfEvent> = props => {
   const navigation = useNavigation();
+  const { openModal } = useModal();
 
   const { currentEvent, setImageIndex } = useEvent();
 
@@ -16,10 +17,13 @@ export const ImagesOfEvent: React.FC<IImagesOfEvent> = props => {
     navigation.navigate('ShowImages');
   };
 
+  const showAlert = () => openModal('ModalQuestion');
+
   const layoutProps = {
     ...props,
     goTo,
     currentEvent,
+    showAlert,
   };
 
   return <Layout {...layoutProps} />;
