@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Button } from '~/components';
-import { Wrapped, Text } from '~/components/Base';
+import { Button } from '~/components/Button';
+import { Wrapped } from '~/components/Base';
 import { ModalTitle, ModalDescription } from '~/components/Base/Modal';
 
 import { IModalQuestionLayout } from '../data';
@@ -18,9 +18,9 @@ export const ModalQuestion: React.FC<IModalQuestionLayout> = ({
       }
     </ModalDescription>
     <Wrapped flexDirection="row" justifyContent="flex-end">
-      <Button title="Cancelar" onPress={cancel} color="black" />
+      <Button title="Cancelar" onPress={cancel} color="green" />
       <Wrapped mx={1} />
-      <Button title="Deletar" onPress={remove} />
+      <Button title="Deletar" onPress={remove} color="red" />
     </Wrapped>
   </Wrapped>
 );

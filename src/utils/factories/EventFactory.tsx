@@ -22,6 +22,7 @@ interface IEventFactory {
   sortEvents(events: IEvent[]): IEvent[];
   getEventNow(day: IDayNames): IResp;
   updateEvent(event: IEvent): void;
+  deleteEvent(id: string): IDay;
 }
 
 export const createEventFactory = (day: IDay): IEventFactory => {
@@ -105,6 +106,22 @@ export const createEventFactory = (day: IDay): IEventFactory => {
     return currentDay;
   };
 
+  const deleteEvent = (id: string): IDay => {
+    const dayName = Object.keys(currentDay)[0];
+
+    const newEvents = Object.values(currentDay)[0].events.filter(
+      event => event.id !== id
+    );
+
+    const newDay = {
+      [dayName.toLowerCase()]: {
+        events: newEvents,
+      },
+    };
+
+    return newDay;
+  };
+
   const sortEvents = (events: IEvent[]): IEvent[] => {
     return orderBy(events, ['initial'], ['asc']);
   };
@@ -134,6 +151,7 @@ export const createEventFactory = (day: IDay): IEventFactory => {
     sortEvents,
     createEvent,
     getEventNow,
+    deleteEvent,
     updateEvent,
     getCurrentEvent,
     formattingImages,

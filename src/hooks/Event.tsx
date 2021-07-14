@@ -23,7 +23,7 @@ export const EventProvider: React.FC = ({ children }) => {
     date: { dayName },
   } = useDate();
 
-  const [days, setDays] = useState<IDays>(mockDaysData);
+  const [days, setDays] = useState<IDays>(mockDaysDataEmpty);
 
   const [spotlightDay, setSpotlightDay] = useState<IDay>({
     [dayName]: days[dayName.toLowerCase() as IDayNames],
@@ -34,7 +34,7 @@ export const EventProvider: React.FC = ({ children }) => {
   });
 
   const getDaysStorage = async () => {
-    const days = mockDaysData;
+    const days = mockDaysDataEmpty;
     const dayToInit = { [dayName]: days[dayName.toLowerCase() as IDayNames] };
     setDays(days);
     setSpotlightDay(dayToInit);

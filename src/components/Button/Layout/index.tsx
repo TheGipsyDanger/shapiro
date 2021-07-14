@@ -6,6 +6,7 @@ import { IButtonLayout } from '../data';
 
 export const Button: React.FC<IButtonLayout> = ({
   title,
+  color = 'primary',
   disabled = false,
   ...props
 }) => (
@@ -17,7 +18,7 @@ export const Button: React.FC<IButtonLayout> = ({
         </Text>
       </Wrapped>
     ) : (
-      <Wrapped bg="primary" borderRadius={8}>
+      <Wrapped bg={color} borderRadius={8}>
         <Text color="white" px={4} py={2}>
           {title}
         </Text>
