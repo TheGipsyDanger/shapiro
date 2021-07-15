@@ -10,7 +10,7 @@ export interface IEventListItem {
 }
 
 export interface IEventsOfDayLayout extends IEventsOfDay {
-  day: string;
+  headerTitle: string;
   events: IEvent[];
   selectEvent(name: string): void;
 }

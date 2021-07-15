@@ -1,19 +1,26 @@
 import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
 
-import { Page, EventCell, Wrapped, ModalHeader, Scroll } from '~/components';
+import {
+  Page,
+  Text,
+  Scroll,
+  Wrapped,
+  EventCell,
+  ModalHeader,
+} from '~/components';
 
 import { IEventsOfDayLayout } from '../data';
 
 export const EventsOfDay: React.FC<IEventsOfDayLayout> = ({
-  day,
   events,
+  headerTitle,
   selectEvent,
 }) => (
   <Wrapped flex={1} bg={'white'}>
     <Page testID="EventsOfDay">
       <StatusBar style="dark" />
-      <ModalHeader title={`Events of ${day}`} />
+      <ModalHeader title={headerTitle} />
       <Scroll testID="EventsList">
         <Wrapped mx={2}>
           {events.map((event, index) => (

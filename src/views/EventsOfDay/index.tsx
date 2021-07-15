@@ -21,9 +21,13 @@ export const EventsOfDay: React.FC<IEventsOfDay> = props => {
     navigation.navigate('ImagesOfEvent');
   };
 
+  const headerTitle = !!events.length
+    ? `Events of ${day}`
+    : `${day.charAt(0).toUpperCase() + day.slice(1)} has no events`;
+
   const layoutProps = {
     ...props,
-    day,
+    headerTitle,
     selectEvent,
     events: Event.sortEvents(events),
   };
