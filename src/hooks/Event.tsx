@@ -34,7 +34,7 @@ export const EventProvider: React.FC = ({ children }) => {
   });
 
   const getDaysStorage = async () => {
-    const days = mockDaysDataEmpty;
+    const days = await getStorage('days');
     const dayToInit = { [dayName]: days[dayName.toLowerCase() as IDayNames] };
     setDays(days);
     setSpotlightDay(dayToInit);
