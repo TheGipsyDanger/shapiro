@@ -21,18 +21,8 @@ export const Home: React.FC<IHome> = props => {
 
   const Days = createDaysFactory(days);
 
-  const emptyMessage = () =>
-    showAlert({
-      title: `Ops...`,
-      message: 'Esse evento não possui nenhuma foto.',
-      type: 'error',
-    });
-
   const selectDay = (day: IDayNames) => {
     const dayObj = Days.selectedDay(day);
-
-    if (!dayObj[day].events.length) return emptyMessage();
-
     setSelectedDay(dayObj);
     navigate('EventsOfDay');
   };
