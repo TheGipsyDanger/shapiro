@@ -56,6 +56,9 @@ export const EventProvider: React.FC = ({ children }) => {
       setSpotlightDay({
         [dayName]: days[dayName.toLowerCase() as IDayNames],
       });
+      setSelectedDay({
+        [dayName]: days[dayName.toLowerCase() as IDayNames],
+      });
     } catch (error) {}
     return days;
   };

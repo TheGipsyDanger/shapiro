@@ -9,6 +9,7 @@ import { Spotlight as Layout } from './Layout';
 
 export const Spotlight: React.FC<ISpotlight> = props => {
   const navigation = useNavigation();
+
   const { spotlightDay, setCurrentEvent, days, setSelectedDay } = useEvent();
 
   const Event = createEventFactory(spotlightDay);

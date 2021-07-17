@@ -1,14 +1,7 @@
 import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
 
-import {
-  Page,
-  Text,
-  Scroll,
-  Wrapped,
-  EventCell,
-  ModalHeader,
-} from '~/components';
+import { Page, Scroll, Wrapped, EventCell, ModalHeader } from '~/components';
 
 import { IEventsOfDayLayout } from '../data';
 

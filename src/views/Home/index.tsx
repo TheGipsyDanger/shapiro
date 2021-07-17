@@ -9,7 +9,6 @@ import { Home as Layout } from './Layout';
 
 export const Home: React.FC<IHome> = props => {
   const { navigate } = useNavigation();
-  const { showAlert } = useAlert();
 
   const { days, setSelectedDay } = useEvent();
 
