@@ -10,7 +10,6 @@ import {
   IDayNames,
   IEventsContext,
   mockDaysDataEmpty,
-  mockDaysData,
 } from '~/utils';
 
 import { useStorage } from './Storage';
