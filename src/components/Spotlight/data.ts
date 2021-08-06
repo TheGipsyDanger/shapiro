@@ -1,7 +1,7 @@
 import { IEvent } from '~/utils';
 
 export interface ISpotlight {
-  data?: any;
+  onPress(): void;
 }
 
 export interface ISpotlightLayout extends ISpotlight {

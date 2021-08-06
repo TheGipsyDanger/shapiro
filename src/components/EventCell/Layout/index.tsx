@@ -47,14 +47,14 @@ export const EventCell: React.FC<IEventCellLayout> = ({
   ...props
 }) => (
   <Wrapped
+    {...{ onPress }}
     bg={'white'}
     testID="EventCell"
     p={2}
     pb={3}
     mb={3}
-    borderBottomWidth={1}
-    {...{ onPress }}
-    borderColor={'primary'}>
+    borderBottomWidth={1 / 3}
+    borderColor={'black'}>
     <Title {...props} imagesCount={imagesCount} />
     <Wrapped
       flexDirection="row"

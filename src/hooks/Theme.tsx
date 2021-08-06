@@ -35,7 +35,7 @@ export const dayColors: { [key: string]: string } = {
 
 export const colors: { [key: string]: string } = {
   white: '#FFFFFF',
-  black: '#111111',
+  black: '#4C5270',
   red: '#E05F5F',
   yellow: '#FFE483',
   orange: '#fbbf96',
@@ -65,7 +65,8 @@ export const shadows: { [key: string]: string } = {
   text: '4px 4px 4px  rgba(0, 0, 0, 0.12)',
   icon: '4px 4px 4px  rgba(0, 0, 0, 0.12)',
   iconVery: '0px 0px 8px  rgba(0, 0, 0, 0.3)',
-  card: '4px 4px 4px  rgba(0, 0, 0, 0.12)',
+  card: '1px 1px 0px  rgba(0, 0, 0, 0.1)',
+  toast: '0px 0px 8px  rgba(0, 0, 0, 0.1)',
   event: '0px 0px 4px  rgba(0, 0, 0, 0.12)',
 };
 

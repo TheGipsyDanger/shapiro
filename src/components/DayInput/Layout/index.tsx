@@ -38,7 +38,7 @@ export const DayInput: React.FC<IDayInputLayout> = ({
               mr={2}
               width={Metrics.width / 3}
               borderWidth={daySelected === day ? 1 : 0}
-              borderColor="primary">
+              borderColor="green">
               <Text size={4}>{day}</Text>
             </Card>
           </Wrapped>

@@ -6,7 +6,7 @@ import { IButtonLayout } from '../data';
 
 export const Button: React.FC<IButtonLayout> = ({
   title,
-  color = 'primary',
+  color = 'green',
   disabled = false,
   ...props
 }) => (

@@ -22,7 +22,7 @@ export const ShowImages: React.FC<IShowImagesLayout> = ({
       top={initialWindowMetrics?.insets.top}
       left={0}
       right={0}>
-      <ModalHeader title="" />
+      <ModalHeader title="" color="white" />
     </Wrapped>
     <ImageViewer
       onChange={index => swipeCarrousel(index)}

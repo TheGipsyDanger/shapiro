@@ -8,6 +8,7 @@ import { IModalHeaderLayout } from '../data';
 export const ModalHeader: React.FC<IModalHeaderLayout> = ({
   onPress,
   title,
+  color = 'black',
 }) => (
   <Wrapped>
     <Wrapped center>
@@ -15,7 +16,7 @@ export const ModalHeader: React.FC<IModalHeaderLayout> = ({
         lib="Entypo"
         name="chevron-small-down"
         size={40}
-        color="primary"
+        color={color}
         {...{ onPress }}
       />
     </Wrapped>

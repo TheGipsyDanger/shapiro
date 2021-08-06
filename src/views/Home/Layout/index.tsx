@@ -4,9 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 
 import {
   Page,
-  Icon,
   Scroll,
-  Linear,
   DayCell,
   Wrapped,
   Spotlight,
@@ -41,19 +39,19 @@ export const Home: React.FC<IHomeLayout> = ({
   goToCreateEvent,
   ...props
 }) => (
-  <Linear flex={1}>
-    <Page testID="Home" bg="transparent">
-      <StatusBar style="light" />
+  <Wrapped flex={1} bg="white">
+    <Page testID="Home" bg="transparent" pt={2}>
+      <StatusBar style="dark" />
       <Wrapped mb={2}>
-        <HomeHeader onPress={goToCreateEvent} />
+        <HomeHeader />
       </Wrapped>
       <Scroll bg="transparent" flex={1}>
         <List {...props} />
         <Wrapped px={2}>
-          <Spotlight />
+          <Spotlight onPress={goToCreateEvent} />
         </Wrapped>
       </Scroll>
       <ActionButton onPress={goToCamera} icon="camera" />
     </Page>
-  </Linear>
+  </Wrapped>
 );

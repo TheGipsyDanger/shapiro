@@ -53,7 +53,7 @@ export const ShapiroCamera: React.FC<IShapiroCameraLayout> = ({
         <StatusBar style="light" />
         <Wrapped flex={1} justifyContent="space-between">
           <Wrapped>
-            <ModalHeader title="" />
+            <ModalHeader title="" color="white" />
             <CameraEvent {...{ event }} />
           </Wrapped>
           <CameraButtons {...{ ...props, type, flashMode, takePicture }} />

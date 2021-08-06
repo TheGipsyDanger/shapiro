@@ -11,7 +11,7 @@ export const ActionButton: React.FC<IActionButtonLayout> = ({
 }) => (
   <Wrapped
     testID={`ActionButton`}
-    bg={type == 'default' ? 'primary' : 'red'}
+    bg={type == 'default' ? 'black' : 'red'}
     position="absolute"
     shadow="iconVery"
     borderRadius="circle"

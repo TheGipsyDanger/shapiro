@@ -29,7 +29,7 @@ export const Toast: React.FC<IToast> = props => {
   };
 
   useEffect(() => {
-    if (isShow) {
+    if (true) {
       Animated.timing(animationValue, animations.show).start();
       setTimeout(() => {
         Animated.timing(animationValue, animations.remove).start();
@@ -51,6 +51,7 @@ export const Toast: React.FC<IToast> = props => {
       testID={`Toast`}>
       <Wrapped
         bg="white"
+        shadow={'toast'}
         borderRadius={8}
         borderLeftWidth={8}
         borderColor={alertCtx.type === 'error' ? 'red' : 'green'}
