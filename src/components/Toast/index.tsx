@@ -29,7 +29,7 @@ export const Toast: React.FC<IToast> = props => {
   };
 
   useEffect(() => {
-    if (true) {
+    if (isShow) {
       Animated.timing(animationValue, animations.show).start();
       setTimeout(() => {
         Animated.timing(animationValue, animations.remove).start();

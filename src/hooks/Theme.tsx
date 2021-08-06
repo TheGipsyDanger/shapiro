@@ -49,6 +49,7 @@ export const colors: { [key: string]: string } = {
   shadowBorder: 'rgba(0,0,0,0.2)',
   opacity: 'rgba(0,0,0,0.4)',
   gray: '#757575',
+  transparent: 'transparent',
   primary: dayColors[moment().format('dddd').toLowerCase()],
   ...dayColors,
 };
