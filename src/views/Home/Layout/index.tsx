@@ -17,6 +17,7 @@ import { IHomeLayout, IHomeList, IHomeListItem } from '../data';
 const List = ({ days, selectDay }: IHomeList) => (
   <Wrapped>
     <FlatList
+      testID="HomeList"
       data={days}
       horizontal={true}
       showsHorizontalScrollIndicator={false}
@@ -25,7 +26,7 @@ const List = ({ days, selectDay }: IHomeList) => (
         flexGrow: 0,
       }}
       renderItem={({ item, index }: IHomeListItem) => (
-        <Wrapped ml={index === 0 ? 2 : 0} mr={index !== 7 ? 2 : 0}>
+        <Wrapped ml={index === 0 ? 2 : 0} mr={index !== 6 ? 2 : 0}>
           <DayCell day={item.day} events={item.events} press={selectDay} />
         </Wrapped>
       )}
@@ -39,8 +40,8 @@ export const Home: React.FC<IHomeLayout> = ({
   goToCreateEvent,
   ...props
 }) => (
-  <Wrapped flex={1} bg="white">
-    <Page testID="Home" bg="transparent" pt={2}>
+  <Wrapped testID="Home" flex={1} bg="white">
+    <Page bg="transparent" pt={2}>
       <StatusBar style="dark" />
       <Wrapped mb={2}>
         <HomeHeader />

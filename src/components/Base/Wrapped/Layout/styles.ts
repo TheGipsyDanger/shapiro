@@ -31,6 +31,14 @@ export default {
         elevation: 3;
       `}
 
+    ${({ backgroundColor, bg }) =>
+      (backgroundColor || bg) &&
+      css`
+        background-color: ${theme.colors[
+          (backgroundColor as string) || (bg as string)
+        ]};
+      `}
+
     ${({ center }) =>
       center &&
       css`
@@ -42,6 +50,13 @@ export default {
       borderColor &&
       css`
         border-color: ${theme.colors[borderColor as string]};
+      `}
+
+
+    ${({ borderRadius }) =>
+      borderRadius &&
+      css`
+        border-radius: ${theme.radii[borderRadius as string]}px;
       `}
   `,
 };

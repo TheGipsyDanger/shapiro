@@ -54,7 +54,7 @@ export const colors: { [key: string]: string } = {
   ...dayColors,
 };
 
-export const radii = {
+export const radii: { [key: string]: number } = {
   square: 4,
   medium: 8,
   round: 17,

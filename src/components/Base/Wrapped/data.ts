@@ -9,6 +9,7 @@ import {
   LayoutProps,
   BorderColorProps,
   PositionProps,
+  ColorStyleProps,
 } from 'styled-system';
 
 export interface IWrapped
@@ -21,6 +22,7 @@ export interface IWrapped
     TypographyProps,
     BackgroundColorProps,
     BorderColorProps,
+    ColorStyleProps,
     LayoutProps {
   shadow?: string;
   testID?: string;

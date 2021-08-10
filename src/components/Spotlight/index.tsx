@@ -21,7 +21,6 @@ export const Spotlight: React.FC<ISpotlight> = props => {
   const selectEvent = (id: string) => {
     const dayObj = Days.selectedDay(day);
     const currentEvent = Event.getCurrentEvent(id);
-
     setSelectedDay(dayObj);
     setCurrentEvent(currentEvent);
     navigation.navigate('ImagesOfEvent');

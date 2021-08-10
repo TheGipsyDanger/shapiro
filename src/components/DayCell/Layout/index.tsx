@@ -16,7 +16,7 @@ const defineText = (day: string) => {
 const size = width / 3;
 
 export const DayCell: React.FC<IDayCellLayout> = ({ day, events, press }) => (
-  <Wrapped my={2} onPress={() => press(day)}>
+  <Wrapped testID="DayCell" my={2} onPress={() => press(day)}>
     <Card width={size} height={size}>
       <Wrapped
         height={6}

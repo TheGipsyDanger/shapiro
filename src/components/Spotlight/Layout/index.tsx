@@ -17,7 +17,7 @@ export const Spotlight: React.FC<ISpotlightLayout> = ({
         </Text>
       </Wrapped>
 
-      <Wrapped {...{ onPress }}>
+      <Wrapped testID={`AddEvent`} {...{ onPress }}>
         <Icon name={'plussquare'} color="green" size={40} />
       </Wrapped>
     </Wrapped>
