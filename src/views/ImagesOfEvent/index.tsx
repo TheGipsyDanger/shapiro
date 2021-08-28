@@ -8,8 +8,8 @@ import { ImagesOfEvent as Layout } from './Layout';
 
 export const ImagesOfEvent: React.FC<IImagesOfEvent> = props => {
   const navigation = useNavigation();
-  const { openModal, defineFunctions } = useModal();
 
+  const { openModal, defineFunctions } = useModal();
   const { currentEvent, setImageIndex } = useEvent();
 
   const goTo = (imageIndex: number) => {
@@ -25,8 +25,8 @@ export const ImagesOfEvent: React.FC<IImagesOfEvent> = props => {
   const layoutProps = {
     ...props,
     goTo,
-    currentEvent,
     showAlert,
+    currentEvent,
   };
 
   return <Layout {...layoutProps} />;

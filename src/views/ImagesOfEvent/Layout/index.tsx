@@ -13,17 +13,20 @@ export const ImagesOfEvent: React.FC<IImagesOfEventLayout> = ({
   showAlert,
   currentEvent,
 }) => (
-  <Wrapped flex={1} bg="white">
+  <Wrapped flex={1} bg="white" testID={`ImagesOfEvent`}>
     <Page>
       <StatusBar style="dark" />
       <ModalHeader title={`${currentEvent.name}`} />
       <FlatList
-        testID={`ImagesOfEvent`}
+        testID={`ImagesOfEventList`}
         numColumns={4}
         data={currentEvent.images}
         showsVerticalScrollIndicator={false}
         renderItem={({ item: img, index }: any) => (
-          <C.ImageContainer center onPress={() => goTo(index)}>
+          <C.ImageContainer
+            testID="ImagesOfEventListItem"
+            center
+            onPress={() => goTo(index)}>
             <C.Image
               source={{
                 uri: img,

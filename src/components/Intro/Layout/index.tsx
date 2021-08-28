@@ -8,7 +8,7 @@ import C from './styles';
 
 const Button = ({ id, label, onPress }: IButtonSlide) => (
   <Wrapped center testID={id} {...{ onPress }}>
-    <Wrapped bg="shadowBorder" px={4} py={2} borderRadius={100}>
+    <Wrapped bg="shadowBorder" px={4} py={2} borderRadius="circle">
       <Text color="white" font="light">
         {label}
       </Text>

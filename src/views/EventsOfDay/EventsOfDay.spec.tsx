@@ -7,11 +7,15 @@ import { EventsOfDay } from './';
 import { EventsOfDay as EventsOfDayLayout } from './Layout';
 
 const mockFN = jest.fn();
+const mockActionOneFN = jest.fn();
 const mockActionFN = jest.fn();
+
+const events = mockDaysData.monday.events;
 
 jest.mock('../../hooks/Event', () => {
   return {
     useEvent: () => ({
+      setCurrentEvent: mockActionOneFN,
       selectedDay: {
         monday: {
           events: mockDaysData.monday.events,
@@ -30,16 +34,35 @@ jest.mock('@react-navigation/native', () => {
 });
 
 const layoutProps = {
-  day: 'monday',
-  events: mockDaysData.monday.events,
   selectEvent: mockActionFN,
+  headerTitle: 'monday',
+  events,
 };
 
 describe('Render EventsOfDay', () => {
+  beforeEach(() => {
+    mockDaysData.monday.events = events;
+  });
+
   it('Should be EventsOfDay exist', () => {
     const { getByTestId } = render(<EventsOfDay />);
     const currentElement = getByTestId(`EventsOfDay`);
     expect(currentElement).toBeTruthy();
+  });
+
+  it('Should header exist with correct title according to the events', () => {
+    const { getByTestId } = render(<EventsOfDay />);
+    const element = getByTestId('ModalHeaderTitle');
+    expect(element).toBeTruthy();
+    expect(element.props.children).toBe('Events of monday');
+  });
+
+  it('Should header exist with correct title according to the events', () => {
+    mockDaysData.monday.events = [];
+    const { getByTestId } = render(<EventsOfDay />);
+    const element = getByTestId('ModalHeaderTitle');
+    expect(element).toBeTruthy();
+    expect(element.props.children).toBe('Monday has no events');
   });
 
   it('Validate press', () => {
@@ -48,20 +71,22 @@ describe('Render EventsOfDay', () => {
     fireEvent.press(listElements[0]);
     expect(mockFN).toBeCalled();
     expect(mockFN).toHaveBeenCalledWith('ImagesOfEvent');
+    expect(mockActionOneFN).toBeCalled();
+    expect(mockActionOneFN).toHaveBeenCalledWith(mockDaysData.monday.events[0]);
   });
 });
 
 describe('Render EventsOfDayLayout', () => {
   it('Should be EventsList exist', () => {
     const { getByTestId } = render(<EventsOfDayLayout {...layoutProps} />);
-    const currentElement = getByTestId('EventsList');
-    expect(currentElement).toBeTruthy();
+    const element = getByTestId('EventsList');
+    expect(element).toBeTruthy();
   });
 
   it('Validate EventsList length', () => {
     const { getAllByTestId } = render(<EventsOfDayLayout {...layoutProps} />);
     const listElements = getAllByTestId('EventCell');
-    expect(listElements).toHaveLength(3);
+    expect(listElements).toHaveLength(4);
   });
 
   it('Validate press', () => {
@@ -69,30 +94,6 @@ describe('Render EventsOfDayLayout', () => {
     const listElements = getAllByTestId('EventCell');
     fireEvent.press(listElements[0]);
     expect(mockActionFN).toBeCalled();
-    expect(mockActionFN).toHaveBeenCalledWith('Lily James 1');
-  });
-
-  it('Validate EventsList length with not events', () => {
-    const { queryByTestId } = render(
-      <EventsOfDayLayout {...layoutProps} events={[]} />
-    );
-    const currentElement = queryByTestId('EventsList');
-    expect(currentElement).not.toBeTruthy();
-  });
-
-  it('Validate EmptyMessage exist', () => {
-    const { queryByTestId } = render(
-      <EventsOfDayLayout {...layoutProps} events={[]} />
-    );
-    const currentElement = queryByTestId('EmptyMessage');
-    expect(currentElement).toBeTruthy();
-  });
-
-  it('Validate EmptyMessageText exist', () => {
-    const { queryByTestId } = render(
-      <EventsOfDayLayout {...layoutProps} events={[]} />
-    );
-    const emptyText = queryByTestId('EmptyMessageText');
-    expect(emptyText.props.children).toEqual('No Events');
+    expect(mockActionFN).toHaveBeenCalledWith('1');
   });
 });

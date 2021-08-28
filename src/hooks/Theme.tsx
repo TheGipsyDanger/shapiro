@@ -35,7 +35,7 @@ export const dayColors: { [key: string]: string } = {
 
 export const colors: { [key: string]: string } = {
   white: '#FFFFFF',
-  black: '#4C5270',
+  black: '#444444',
   red: '#E05F5F',
   yellow: '#FFE483',
   orange: '#fbbf96',
@@ -48,6 +48,7 @@ export const colors: { [key: string]: string } = {
   cleanGray: '#cecece',
   shadowBorder: 'rgba(0,0,0,0.2)',
   opacity: 'rgba(0,0,0,0.4)',
+  clean: '#E8E8E8',
   gray: '#757575',
   transparent: 'transparent',
   primary: dayColors[moment().format('dddd').toLowerCase()],

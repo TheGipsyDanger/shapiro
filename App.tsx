@@ -8,6 +8,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import {
   Intro,
   Toast,
+  Wrapped,
   GlobalProvider,
   ModalController,
 } from './src/components';
@@ -52,10 +53,12 @@ const App: React.FC = () => {
       'rubik-medium': require('./src/assets/fonts/Rubik-Medium.ttf'),
       'rubik-bold': require('./src/assets/fonts/Rubik-Bold.ttf'),
       'rubik-light': require('./src/assets/fonts/Rubik-Light.ttf'),
+      'rubik-black': require('./src/assets/fonts/Title-Bold.otf'),
     });
     await getTutorialStatus();
   };
 
+  // if (true)
   if (isLoadingComplete === false)
     return (
       <AppLoading

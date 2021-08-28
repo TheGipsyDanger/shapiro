@@ -8,7 +8,7 @@ import C from './styles';
 
 export const Test: React.FC<ITestLayout> = ({ data }) => (
   <Page>
-    <Wrapped flex={1} bg={'orange'}>
+    {/* <Wrapped flex={1} bg={'orange'}>
       <Wrapped flex={1} bg={'red'}>
         <Wrapped p={8} bg={'blue'}>
           <Text>Olá</Text>
@@ -38,6 +38,6 @@ export const Test: React.FC<ITestLayout> = ({ data }) => (
           }}
         />
       </Wrapped>
-    </Wrapped>
+    </Wrapped> */}
   </Page>
 );

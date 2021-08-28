@@ -9,6 +9,7 @@ const fontFamilies: { [key: string]: string } = {
   medium: 'rubik-medium',
   bold: 'rubik-bold',
   light: 'rubik-light',
+  black: 'rubik-black',
 };
 
 export default {

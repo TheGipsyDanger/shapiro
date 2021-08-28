@@ -10,7 +10,7 @@ import {
   TypographyProps,
 } from 'styled-system';
 
-type IFont = 'regular' | 'medium' | 'bold' | 'light';
+type IFont = 'regular' | 'medium' | 'bold' | 'light' | 'black';
 export interface IText
   extends BorderProps,
     ColorProps,

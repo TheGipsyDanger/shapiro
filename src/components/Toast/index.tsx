@@ -52,7 +52,7 @@ export const Toast: React.FC<IToast> = props => {
       <Wrapped
         bg="white"
         shadow={'toast'}
-        borderRadius={8}
+        borderRadius={'medium'}
         borderLeftWidth={8}
         borderColor={alertCtx.type === 'error' ? 'red' : 'green'}
         width={'100%'}

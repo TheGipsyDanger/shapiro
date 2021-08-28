@@ -25,7 +25,12 @@ export const DayCell: React.FC<IDayCellLayout> = ({ day, events, press }) => (
         borderTopRightRadius={4}
       />
       <Wrapped flex={1} center>
-        <Text testID="DayCellTitle" color={day} size={6} font="medium">
+        <Text
+          testID="DayCellTitle"
+          size={6}
+          color={day}
+          font="black"
+          textTransform="uppercase">
           {defineText(day)}
         </Text>
         <Text testID="DayCellSubtitle" size={3} color="gray">

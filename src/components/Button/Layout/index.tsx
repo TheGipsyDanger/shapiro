@@ -12,13 +12,13 @@ export const Button: React.FC<IButtonLayout> = ({
 }) => (
   <Wrapped center {...props} boxShadow="card">
     {disabled ? (
-      <Wrapped bg="white" borderRadius={8} opacity={0.4}>
+      <Wrapped bg="white" borderRadius="medium" opacity={0.4}>
         <Text px={4} py={2}>
           {title}
         </Text>
       </Wrapped>
     ) : (
-      <Wrapped bg={color} borderRadius={8}>
+      <Wrapped bg={color} borderRadius="medium">
         <Text color="white" px={4} py={2}>
           {title}
         </Text>

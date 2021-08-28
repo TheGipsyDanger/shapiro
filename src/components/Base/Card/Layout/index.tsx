@@ -7,7 +7,7 @@ export const Card: React.FC<ICardLayout> = ({
   children,
   bg = 'white',
   shadow = 'card',
-  borderRadius = 4,
+  borderRadius = 'square',
   ...props
 }) => {
   const as = props.onPress && TouchableOpacity;

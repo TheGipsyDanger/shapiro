@@ -10,7 +10,7 @@ export const ModalHeader: React.FC<IModalHeaderLayout> = ({
   title,
   color = 'black',
 }) => (
-  <Wrapped>
+  <Wrapped testID="ModalHeader">
     <Wrapped center>
       <Icon
         lib="Entypo"
@@ -21,7 +21,13 @@ export const ModalHeader: React.FC<IModalHeaderLayout> = ({
       />
     </Wrapped>
     {title !== '' && (
-      <Text size={6} font="medium" mt={2} pl={2} mb={4}>
+      <Text
+        testID="ModalHeaderTitle"
+        size={6}
+        font="medium"
+        mt={2}
+        pl={2}
+        mb={4}>
         {title}
       </Text>
     )}
