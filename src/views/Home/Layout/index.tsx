@@ -26,7 +26,7 @@ const List = ({ days, selectDay }: IHomeList) => (
         flexGrow: 0,
       }}
       renderItem={({ item, index }: IHomeListItem) => (
-        <Wrapped ml={index === 0 ? 2 : 0} mr={index !== 6 ? 2 : 0}>
+        <Wrapped ml={index === 0 ? 2 : 0} mr={2}>
           <DayCell day={item.day} events={item.events} press={selectDay} />
         </Wrapped>
       )}

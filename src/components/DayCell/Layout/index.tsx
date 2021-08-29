@@ -13,21 +13,20 @@ const defineText = (day: string) => {
   return subDay.charAt(0).toUpperCase() + subDay.slice(1);
 };
 
-const size = width / 3;
+const size = width / 4;
 
 export const DayCell: React.FC<IDayCellLayout> = ({ day, events, press }) => (
   <Wrapped testID="DayCell" my={2} onPress={() => press(day)}>
-    <Card width={size} height={size}>
-      <Wrapped
-        height={6}
-        bg={day}
-        borderTopLeftRadius={4}
-        borderTopRightRadius={4}
-      />
-      <Wrapped flex={1} center>
+    <Wrapped
+      width={size}
+      height={size}
+      borderRadius="circle"
+      borderWidth={1}
+      borderColor={day}>
+      <Wrapped flex={1} borderRadius={'circle'} center>
         <Text
           testID="DayCellTitle"
-          size={6}
+          size={4}
           color={day}
           font="black"
           textTransform="uppercase">
@@ -37,6 +36,6 @@ export const DayCell: React.FC<IDayCellLayout> = ({ day, events, press }) => (
           {`${events} events`}
         </Text>
       </Wrapped>
-    </Card>
+    </Wrapped>
   </Wrapped>
 );

@@ -1,14 +1,13 @@
 import * as React from 'react';
 import * as Font from 'expo-font';
 import { useState } from 'react';
-import AppLoading from 'expo-app-loading';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
+import AppLoading from 'expo-app-loading';
 
 import {
   Intro,
   Toast,
-  Wrapped,
   GlobalProvider,
   ModalController,
 } from './src/components';

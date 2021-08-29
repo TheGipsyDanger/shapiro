@@ -26,10 +26,18 @@ export const Spotlight: React.FC<ISpotlight> = props => {
     navigation.navigate('ImagesOfEvent');
   };
 
+  const openDay = () => {
+    setSelectedDay(Days.selectedDay(day));
+    navigation.navigate('EventsOfDay');
+  };
+
   const layoutProps = {
     ...props,
     day,
+    openDay,
     selectEvent,
+    hasEvents: !!events.length,
+    showMore: events.length > 3,
     events: Event.sortEvents(events).slice(0, 3),
   };
 

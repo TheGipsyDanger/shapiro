@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { ITest } from './data';
 import { Test as Layout } from './Layout';
 
