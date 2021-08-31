@@ -73,11 +73,11 @@ export const shadows: { [key: string]: string } = {
 };
 
 export const theme = {
-  shadows,
-  space,
-  fontSizes,
-  colors,
   radii,
+  space,
+  colors,
+  shadows,
+  fontSizes,
 };
 
 export const ThemeProvider: React.FC = ({ children }) => {

@@ -18,7 +18,6 @@ export const CreateEvent: React.FC<ICreateEvent> = props => {
   const { days, updateDays } = useEvent();
   const { date } = useDate();
   const { showAlert } = useAlert();
-
   const [daySelected, setDaySelected] = useState(date.dayName.toLowerCase());
 
   const Days = createDaysFactory(days);

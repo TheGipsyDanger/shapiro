@@ -52,19 +52,20 @@ export const Spotlight: React.FC<ISpotlightLayout> = ({
             </Wrapped>
           </Wrapped>
         ))}
-
         {showMore && (
           <Wrapped onPress={openDay} mt={4} center>
-            <Text font="medium" numberOfLines={1}>
-              Show More
+            <Text font="medium" size={4} numberOfLines={1}>
+              More events
             </Text>
           </Wrapped>
         )}
       </Wrapped>
     ) : (
-      <Text font="black" size={4} mb={3}>
-        No recorded events
-      </Text>
+      <Wrapped py={3}>
+        <Text font="medium" size={4}>
+          No recorded events
+        </Text>
+      </Wrapped>
     )}
   </Wrapped>
 );

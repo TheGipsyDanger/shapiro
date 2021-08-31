@@ -15,7 +15,7 @@ export const EventsOfDay: React.FC<IEventsOfDayLayout> = ({
       <StatusBar style="dark" />
       <ModalHeader title={headerTitle} />
       <Scroll testID="EventsList">
-        <Wrapped mx={2}>
+        <Wrapped>
           {events.map((event, index) => (
             <EventCell
               key={index}

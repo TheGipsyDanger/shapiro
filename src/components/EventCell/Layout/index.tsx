@@ -27,12 +27,14 @@ const Title = ({ name, hour, imagesCount }: any) => (
     alignItems="center"
     justifyContent="space-between">
     <Wrapped>
-      <Text testID="EventCellName">{name}</Text>
-      <Text testID="EventCellCount" color="gray" size={2}>
+      <Text font="medium" testID="EventCellName">
+        {name}
+      </Text>
+      <Text font="medium" testID="EventCellCount" color="gray" size={2}>
         {imagesCount} photos
       </Text>
     </Wrapped>
-    <Wrapped>
+    <Wrapped bg="clean" p={1} px={2} borderRadius="medium">
       <Text testID="EventCellName" size={2}>
         {hour}
       </Text>
@@ -68,11 +70,12 @@ export const EventCell: React.FC<IEventCellLayout> = ({
         </>
       ) : (
         <Wrapped
-          testID="EventCellEmptyMessage"
           flex={1}
-          boxShadow={shadows.cell}>
+          testID="EventCellEmptyMessage"
+          borderRadius="square"
+          bg="clean">
           <C.FakeImage>
-            <Text size={6}>{'No Photos'}</Text>
+            <Text>{'No Photos'}</Text>
           </C.FakeImage>
         </Wrapped>
       )}
