@@ -1,4 +1,5 @@
 {
+  "inTest": true,
   "expo": {
     "name": "Shapiro",
     "slug": "Shapiro",

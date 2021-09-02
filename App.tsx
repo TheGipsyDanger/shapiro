@@ -57,7 +57,6 @@ const App: React.FC = () => {
     await getTutorialStatus();
   };
 
-  // if (true)
   if (isLoadingComplete === false)
     return (
       <AppLoading

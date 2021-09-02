@@ -33,7 +33,7 @@ export const Modal: React.FC<IModalLayout> = ({
       <C.ModalWrapped {...props} useNativeDriverForBackdrop useNativeDriver>
         <Wrapped flex={flex} bg={bg}>
           {hasClosableButton && (
-            <Wrapped ml={1} mt={bottomInsets} onPress={closeModal} bg="primary">
+            <Wrapped ml={1} mt={bottomInsets} onPress={closeModal} bg="clean">
               <C.CloseIcon />
             </Wrapped>
           )}
@@ -55,14 +55,15 @@ export const Modal: React.FC<IModalLayout> = ({
           flex={flex}
           bg={bg}
           px={2}
-          pt={hasClosableButton ? 1 : bottomInsets}
+          pt={hasClosableButton ? 2 : bottomInsets}
           pb={bottomInsets}>
           {hasClosableButton && (
             <Wrapped
-              bg="primary"
+              bg="clean"
               onPress={closeModal}
               alignSelf="flex-end"
               borderRadius="circle"
+              p={1}
               mb={2}>
               <C.CloseIcon />
             </Wrapped>
@@ -86,10 +87,10 @@ export const Modal: React.FC<IModalLayout> = ({
           right={0}
           flex={flex}
           bg={bg}
-          pt={hasClosableButton ? 1 : bottomInsets}
+          pt={hasClosableButton ? 2 : bottomInsets}
           pb={bottomInsets}>
           {hasClosableButton && (
-            <Wrapped mb={2} onPress={closeModal} bg="primary">
+            <Wrapped mb={2} onPress={closeModal} bg="clean">
               <C.CloseIcon />
             </Wrapped>
           )}

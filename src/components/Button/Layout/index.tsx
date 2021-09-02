@@ -10,19 +10,11 @@ export const Button: React.FC<IButtonLayout> = ({
   disabled = false,
   ...props
 }) => (
-  <Wrapped center {...props} boxShadow="card">
-    {disabled ? (
-      <Wrapped bg="white" borderRadius="medium" opacity={0.4}>
-        <Text px={4} py={2}>
-          {title}
-        </Text>
-      </Wrapped>
-    ) : (
-      <Wrapped bg={color} borderRadius="medium">
-        <Text color="white" px={4} py={2}>
-          {title}
-        </Text>
-      </Wrapped>
-    )}
+  <Wrapped {...props} boxShadow="card">
+    <Wrapped bg="clean" center borderRadius="medium">
+      <Text color={disabled ? 'white' : 'black'} font="medium" py={2}>
+        {title}
+      </Text>
+    </Wrapped>
   </Wrapped>
 );

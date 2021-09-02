@@ -33,7 +33,7 @@ export default {
   `,
   CloseIcon: styled(ICON).attrs({
     size: 24,
-    color: 'white',
+    color: '#444444',
     name: 'close',
   })``,
 };

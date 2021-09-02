@@ -9,6 +9,7 @@ export const ModalContext = createContext<IModalContext>({} as IModalContext);
 export const ModalProvider: React.FC = ({ children }) => {
   const [modalName, setModalName] = useState('default');
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalCtx, setModalCtx] = useState('');
   const [functions, setFunctions] = useState<IFunctions>([() => {}]);
 
   const openModal = (name: IModalNames) => {
@@ -26,12 +27,17 @@ export const ModalProvider: React.FC = ({ children }) => {
     setFunctions(functions);
   };
 
+  const defineCtx = (ctx: string) => {
+    console.log({ ctx });
+  };
+
   return (
     <ModalContext.Provider
       value={{
         functions,
         openModal,
         modalName,
+        defineCtx,
         closeModal,
         modalIsOpen,
         defineFunctions,

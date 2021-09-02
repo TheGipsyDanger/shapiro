@@ -21,4 +21,5 @@ export { CameraEvent } from './CameraEvent';
 export { ActionButton } from './ActionButton';
 export { ModalQuestion } from './ModalQuestion';
 export { ModalController } from './ModalController';
+export { ModalHourPicker } from './ModalHourPicker';
 // Import component here
