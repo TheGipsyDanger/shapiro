@@ -5,18 +5,21 @@ import {
   DateProvider,
   AlertProvider,
   ModalProvider,
+  CreateEventProvider,
 } from '~/hooks';
 
 export const GlobalProvider: React.FC = ({ children }) => {
   return (
     <ThemeProvider>
-      <ModalProvider>
-        <AlertProvider>
-          <DateProvider>
-            <EventProvider>{children}</EventProvider>
-          </DateProvider>
-        </AlertProvider>
-      </ModalProvider>
+      <CreateEventProvider>
+        <ModalProvider>
+          <AlertProvider>
+            <DateProvider>
+              <EventProvider>{children}</EventProvider>
+            </DateProvider>
+          </AlertProvider>
+        </ModalProvider>
+      </CreateEventProvider>
     </ThemeProvider>
   );
 };

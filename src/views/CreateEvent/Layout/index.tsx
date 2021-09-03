@@ -22,6 +22,7 @@ const Separator = ({ children, ...props }: any) => (
 
 export const CreateEvent: React.FC<ICreateEventLayout> = ({
   form: { errors, values, touched, submitForm, isValid },
+  openHourPicker,
   onChange,
   ...props
 }) => {
@@ -39,11 +40,13 @@ export const CreateEvent: React.FC<ICreateEventLayout> = ({
             <HourInput
               placeholder="09:00"
               label="Start"
+              press={openHourPicker}
               {...{ errors, values, touched, onChange }}
             />
             <HourInput
               placeholder="10:00"
               label="Final"
+              press={openHourPicker}
               {...{ errors, values, touched, onChange }}
             />
           </Separator>

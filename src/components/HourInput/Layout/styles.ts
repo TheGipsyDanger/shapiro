@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { Text } from '~/components/Base';
 import { TextInputMask } from 'react-native-masked-text';
 
 export default {
@@ -14,4 +15,8 @@ export default {
     font-family: 'rubik-light';
     font-size: 22px;
   `,
+  FakeTimeInput: styled(Text).attrs({
+    font: 'light',
+    size: 6,
+  })``,
 };

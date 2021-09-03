@@ -1,35 +1,42 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import moment from 'moment';
 
 import { Modal } from '~/components/Base';
-import { useModal } from '~/hooks';
+import { useModal, useCreateEvent } from '~/hooks';
 
 import { IModalHourPicker } from './data';
 import { ModalHourPicker as Layout } from './Layout';
 
 export const ModalHourPicker: React.FC<IModalHourPicker> = props => {
-  const { defineCtx, closeModal } = useModal();
+  const { type, hour, setHour: setDateHook } = useCreateEvent();
+  const { closeModal } = useModal();
 
   const [date, setDate] = useState<Date>(new Date());
 
-  const press = () => {
-    closeModal();
-  };
+  useEffect(() => {
+    const dateString = dateFormatter(date);
+    setDateHook(dateString);
+  }, []);
 
-  const onChange = (_: any, date: object) => {
-    const dateSting = dateFormatter(date);
-    console.log('Selected Date: ', dateSting);
-  };
+  function onChange(_: any, date: Date) {
+    const dateString = dateFormatter(date);
+    setDate(date);
+    setDateHook(dateString);
+  }
 
-  const dateFormatter = (date: object): string =>
-    moment(date, 'DD-MM-YYYY').format('HH:mm');
+  function dateFormatter(date: object): string {
+    return moment(date, 'DD-MM-YYYY').format('HH:mm');
+  }
+
+  const title = type === 'start' ? 'Start at:' : 'End at:';
 
   const layoutProps = {
     ...props,
     date,
-    press,
+    title,
     onChange,
+    closeModal,
   };
 
   return (

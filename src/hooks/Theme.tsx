@@ -50,6 +50,7 @@ export const colors: { [key: string]: string } = {
   opacity: 'rgba(0,0,0,0.4)',
   clean: '#E8E8E8',
   gray: '#757575',
+  placeholder: '#C7C7CD',
   transparent: 'transparent',
   primary: dayColors[moment().format('dddd').toLowerCase()],
   ...dayColors,

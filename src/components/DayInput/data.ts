@@ -4,4 +4,7 @@ export interface IDayInput {
   onChange(fieldName: string, text: string): void;
 }
 
-export interface IDayInputLayout extends IDayInput {}
+export interface IDayInputLayout extends IDayInput {
+  dayIndex: number;
+  isSelected(day: string): boolean;
+}

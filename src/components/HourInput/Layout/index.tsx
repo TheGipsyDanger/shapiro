@@ -7,23 +7,22 @@ import { IHourInputLayout } from '../data';
 import C from './styles';
 
 export const HourInput: React.FC<IHourInputLayout> = ({
-  placeholder,
   label,
   errors,
-  values,
   touched,
-  onChange,
+  hasValue,
+  inputValue,
+  press,
 }) => {
   const lowerLabel = label.toLowerCase();
 
   return (
-    <Wrapped flex={1} testID={`HourInput`}>
+    <Wrapped flex={1} testID={`HourInput`} onPress={() => press(label)}>
       <Text mb={2}>{label}</Text>
 
-      <C.TimeInput
-        {...{ placeholder, value: values[lowerLabel] }}
-        onChangeText={(text: string) => onChange(lowerLabel, text)}
-      />
+      <C.FakeTimeInput color={hasValue ? 'black' : 'placeholder'}>
+        {inputValue}
+      </C.FakeTimeInput>
 
       {errors?.[lowerLabel] && touched?.[lowerLabel] ? (
         <FormError error={errors[lowerLabel]} />

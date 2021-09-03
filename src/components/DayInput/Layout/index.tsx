@@ -9,9 +9,9 @@ import { IDayInputLayout } from '../data';
 export const DayInput: React.FC<IDayInputLayout> = ({
   days,
   onChange,
-  daySelected,
+  dayIndex,
+  isSelected,
 }) => {
-  const dayIndex = days.findIndex(day => day === daySelected);
   return (
     <>
       <Text>Select day</Text>
@@ -37,8 +37,8 @@ export const DayInput: React.FC<IDayInputLayout> = ({
               my={2}
               mr={2}
               width={Metrics.width / 3}
-              borderWidth={daySelected === day ? 1 : 0}
-              borderColor="green">
+              borderWidth={isSelected(day) ? 1 : 0}
+              borderColor="black">
               <Text size={4}>{day}</Text>
             </Card>
           </Wrapped>

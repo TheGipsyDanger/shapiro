@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-import { useEvent, useDate, useAlert } from '~/hooks';
+import { useEvent, useDate, useAlert, useCreateEvent, useModal } from '~/hooks';
 import {
   IDayNames,
   useCreateForm,
@@ -18,11 +18,19 @@ export const CreateEvent: React.FC<ICreateEvent> = props => {
   const { days, updateDays } = useEvent();
   const { date } = useDate();
   const { showAlert } = useAlert();
+  const { hour, type, setType, setHour: setHourHook } = useCreateEvent();
+  const { openModal } = useModal();
   const [daySelected, setDaySelected] = useState(date.dayName.toLowerCase());
 
   const Days = createDaysFactory(days);
 
-  const onSubmit = () => {
+  useEffect(() => {
+    hour !== '' && setHour(type, hour);
+  }, [hour]);
+
+  const form = useCreateForm(onSubmit);
+
+  function onSubmit() {
     const { values } = form;
 
     const dayToSave = Days.selectedDay(values.day as IDayNames);
@@ -38,6 +46,7 @@ export const CreateEvent: React.FC<ICreateEvent> = props => {
         message: 'Successfully created event.',
         type: 'success',
       });
+      clean();
       navigation.goBack();
     } else {
       showAlert({
@@ -46,14 +55,29 @@ export const CreateEvent: React.FC<ICreateEvent> = props => {
         type: 'error',
       });
     }
-  };
+  }
 
-  const form = useCreateForm(onSubmit);
+  function clean() {
+    setType('start');
+    setHourHook('');
+  }
 
-  const onChange = (fieldName: string, text: string) => {
+  function openHourPicker(type: string) {
+    const modalType = type.toLocaleLowerCase();
+    setHourHook('');
+    setType(modalType);
+    openModal('ModalHourPicker');
+  }
+
+  function setHour(type: string, hour: string) {
+    const fieldName = type === 'start' ? type : 'final';
+    onChange(fieldName, hour);
+  }
+
+  function onChange(fieldName: string, text: string) {
     form.setFieldTouched(fieldName);
     form.setFieldValue(fieldName, text);
-  };
+  }
 
   const layoutProps = {
     ...props,
@@ -61,6 +85,7 @@ export const CreateEvent: React.FC<ICreateEvent> = props => {
     onChange,
     daySelected,
     setDaySelected,
+    openHourPicker,
     days: Days.daysName(),
   };
 

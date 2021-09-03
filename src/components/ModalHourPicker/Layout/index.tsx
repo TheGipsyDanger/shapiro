@@ -10,13 +10,14 @@ import { IModalHourPickerLayout } from '../data';
 export const ModalHourPicker: React.FC<IModalHourPickerLayout> = ({
   date,
   press,
+  title,
   onChange,
+  closeModal,
 }) => {
   return (
     <Wrapped>
       <Wrapped center>
-        <ModalTitle>Starts at:</ModalTitle>
-        <ModalTitle>Ends at:</ModalTitle>
+        <ModalTitle>{title}</ModalTitle>
       </Wrapped>
       <DateTimePicker
         testID="dateTimePicker"
@@ -26,7 +27,7 @@ export const ModalHourPicker: React.FC<IModalHourPickerLayout> = ({
         display="spinner"
         onChange={onChange}
       />
-      <Button title={'Confirm'} onPress={press} />
+      <Button title={'Confirm'} onPress={closeModal} />
     </Wrapped>
   );
 };
