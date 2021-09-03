@@ -5,4 +5,7 @@ export interface IDayCell {
   press(day: string): void;
 }
 
-export interface IDayCellLayout extends IDayCell {}
+export interface IDayCellLayout extends IDayCell {
+  size: number;
+  defineText(day: string): string;
+}
