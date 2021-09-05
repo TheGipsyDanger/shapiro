@@ -5,9 +5,9 @@ import { StatusBar } from 'expo-status-bar';
 
 import {
   Page,
-  Text,
   Linear,
   Wrapped,
+  Button,
   CameraEvent,
   ModalHeader,
   CameraButtons,
@@ -15,10 +15,28 @@ import {
 
 import { IShapiroCameraLayout } from '../data';
 
-const NoAccess = () => (
-  <Linear flex={1}>
-    <Wrapped flex={1} center>
-      <Text color="white">{'No access to camera'}</Text>
+import C from './styles';
+
+const NoAccess: React.FC<IShapiroCameraLayout> = ({
+  missingPermissions: { camera, roll },
+  openDeviceSettings,
+}) => (
+  <Linear flex={1} justifyContent="center">
+    <Wrapped mx={4}>
+      <Wrapped>
+        <C.Text font="black" mb={4}>
+          {'No access to camera'}
+        </C.Text>
+        {!camera && (
+          <C.Text>{`We need camera permission to take photos.`}</C.Text>
+        )}
+        {!roll && (
+          <C.Text>{`We need camera roll permission to save photos.`}</C.Text>
+        )}
+      </Wrapped>
+      {(!camera || !roll) && (
+        <Button title="Allow access" onPress={openDeviceSettings} color="red" />
+      )}
     </Wrapped>
   </Linear>
 );
@@ -33,19 +51,19 @@ const Loading = () => (
   </Linear>
 );
 
-export const ShapiroCamera: React.FC<IShapiroCameraLayout> = ({
-  type,
-  event,
-  hasEvent,
-  cameraRef,
-  flashMode,
-  takePicture,
-  hasPermission,
-  ...props
-}) => {
+export const ShapiroCamera: React.FC<IShapiroCameraLayout> = props => {
+  const {
+    type,
+    event,
+    cameraRef,
+    flashMode,
+    takePicture,
+    hasPermission,
+  } = props;
+
   if (hasPermission === null) return <Loading />;
 
-  if (hasPermission === false) return <NoAccess />;
+  if (!hasPermission) return <NoAccess {...props} />;
 
   return (
     <Camera ref={cameraRef} {...{ type, flashMode }} style={{ flex: 1 }}>

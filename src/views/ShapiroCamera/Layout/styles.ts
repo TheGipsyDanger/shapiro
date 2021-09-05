@@ -1,15 +1,12 @@
-import styled from 'styled-components/native'
+import styled from 'styled-components/native';
+
+import { Text } from '~/components';
 
 export default {
-  Container: styled.View`
-    flex: 1;
-    background: #fff;
-    align-items: center;
-    justify-content: center;
+  Text: styled(Text).attrs(props => ({
+    color: 'white',
+    mb: props.mb ? props.mb : 2,
+  }))`
+    text-align: center;
   `,
-  Text: styled.Text`
-    font-size: 18px;
-    color: #f37321;
-    font-weight: bold;
-  `
-}
+};

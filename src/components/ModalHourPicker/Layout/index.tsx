@@ -1,7 +1,7 @@
 import * as React from 'react';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-import { Button } from '~/components';
+import { Button } from '~/components/Button';
 import { Wrapped } from '~/components/Base';
 import { ModalTitle } from '~/components/Base/Modal';
 
@@ -9,7 +9,6 @@ import { IModalHourPickerLayout } from '../data';
 
 export const ModalHourPicker: React.FC<IModalHourPickerLayout> = ({
   date,
-  press,
   title,
   onChange,
   closeModal,

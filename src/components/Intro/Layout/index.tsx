@@ -9,7 +9,7 @@ import C from './styles';
 const Button = ({ id, label, onPress }: IButtonSlide) => (
   <Wrapped center testID={id} {...{ onPress }}>
     <Wrapped bg="shadowBorder" px={4} py={2} borderRadius="circle">
-      <Text color="white" font="light">
+      <Text color="white" font="medium">
         {label}
       </Text>
     </Wrapped>
@@ -25,7 +25,7 @@ const Item = ({ image, title, text }: ISlide) => (
       <Text font="medium" size={7} mb={2} color="white">
         {title}
       </Text>
-      <Text size={4} textAlign="center" color="white">
+      <Text size={5} textAlign="center" color="white">
         {text}
       </Text>
     </Wrapped>

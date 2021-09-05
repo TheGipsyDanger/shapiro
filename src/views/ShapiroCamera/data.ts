@@ -8,8 +8,20 @@ export interface IShapiroCameraLayout extends IShapiroCamera {
   flashMode: number;
   hasPermission: boolean | null;
   event: IEvent;
+  missingPermissions: IPermissionCheck;
   hasEvent: boolean;
   takePicture(): void;
   toggleType(): void;
   toggleFlash(): void;
+  openDeviceSettings(): void;
+}
+
+export interface IPermissionCheck {
+  camera: boolean;
+  roll: boolean;
+}
+
+export interface IPermission {
+  camera: string;
+  roll: string;
 }

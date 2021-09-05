@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { createContext, useContext, useState, useEffect } from 'react';
+import isEmpty from 'lodash/isEmpty';
 
 import { useDate } from './Date';
 
@@ -33,7 +34,8 @@ export const EventProvider: React.FC = ({ children }) => {
   });
 
   const getDaysStorage = async () => {
-    const days = await getStorage('days');
+    var days = await getStorage('days');
+    days = isEmpty(days) ? mockDaysDataEmpty : days;
     const dayToInit = { [dayName]: days[dayName.toLowerCase() as IDayNames] };
     setDays(days);
     setSpotlightDay(dayToInit);

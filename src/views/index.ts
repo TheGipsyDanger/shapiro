@@ -1,3 +1,4 @@
+export { Welcome } from './Welcome';
 export { Home } from './Home';
 export { EventsOfDay } from './EventsOfDay';
 export { ImagesOfEvent } from './ImagesOfEvent';

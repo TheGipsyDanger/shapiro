@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { useEffect, useState, useRef } from 'react';
 import { Camera } from 'expo-camera';
+import { Linking } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 import * as MediaLibrary from 'expo-media-library';
 
 import { useEvent, useDate, useAlert } from '~/hooks';
@@ -11,7 +14,7 @@ import {
   createEventFactory,
 } from '~/utils';
 
-import { IShapiroCamera } from './data';
+import { IShapiroCamera, IPermission, IPermissionCheck } from './data';
 import { ShapiroCamera as Layout } from './Layout';
 
 export const ShapiroCamera: React.FC<IShapiroCamera> = props => {
@@ -19,14 +22,20 @@ export const ShapiroCamera: React.FC<IShapiroCamera> = props => {
   const { date } = useDate();
   const { showAlert } = useAlert();
 
+  const navigation = useNavigation();
+
   const cameraRef = useRef(null);
 
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
   const [type, setType] = useState(1);
   const [flashMode, setFlashMode] = useState(0);
+  const [
+    missingPermissions,
+    setMissingPermissions,
+  ] = useState<IPermissionCheck>({} as IPermissionCheck);
 
   useEffect(() => {
-    getPermission();
+    init();
   }, []);
 
   const Days = createDaysFactory(days);
@@ -35,12 +44,46 @@ export const ShapiroCamera: React.FC<IShapiroCamera> = props => {
 
   const { success, data } = Event.getEventNow(date.dayName as IDayNames);
 
-  const getPermission = async () => {
-    const { status } = await Camera.requestPermissionsAsync();
-    setHasPermission(status === 'granted');
-  };
+  async function init() {
+    const permissionsState = await getPermission();
+    const permissions = convertPermissions(permissionsState);
+    const hasPermissionsToFlow = checkPermissions(permissions);
+    setMissingPermissions(permissions);
+    setHasPermission(hasPermissionsToFlow);
+  }
 
-  const takePicture = async () => {
+  async function getPermission(): Promise<any> {
+    try {
+      const { status: camera } = await Camera.requestPermissionsAsync();
+      const { status: roll } = await MediaLibrary.requestPermissionsAsync();
+      return {
+        camera,
+        roll,
+      };
+    } catch (error) {
+      console.log('Error ao pegar permissões');
+    }
+  }
+
+  function checkPermissions(permissions: IPermissionCheck): boolean {
+    return Object.values(permissions).every(Boolean);
+  }
+
+  function convertPermissions(permissions: IPermission): IPermissionCheck {
+    return Object.keys(permissions).reduce((acc, curr) => {
+      return {
+        ...acc,
+        [curr]: permissions[curr as keyof IPermission] === 'granted',
+      };
+    }, {} as IPermissionCheck);
+  }
+
+  function openDeviceSettings() {
+    Linking.openURL('app-settings:');
+    navigation.goBack();
+  }
+
+  async function takePicture() {
     if (!success) {
       return showAlert({
         title: 'Photo cannot be saved.',
@@ -61,7 +104,7 @@ export const ShapiroCamera: React.FC<IShapiroCamera> = props => {
         console.log('error', error);
       }
     }
-  };
+  }
 
   const layoutProps = {
     ...props,
@@ -71,6 +114,8 @@ export const ShapiroCamera: React.FC<IShapiroCamera> = props => {
     takePicture,
     hasPermission,
     hasEvent: success,
+    missingPermissions,
+    openDeviceSettings,
     event: data as IEvent,
     toggleFlash: () => setFlashMode(flashMode === 1 ? 0 : 1),
     toggleType: () => setType(type === 1 ? 2 : 1),

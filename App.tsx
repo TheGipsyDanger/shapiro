@@ -5,18 +5,13 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import AppLoading from 'expo-app-loading';
 
-import {
-  Intro,
-  Toast,
-  GlobalProvider,
-  ModalController,
-} from './src/components';
+import { Toast, GlobalProvider, ModalController } from './src/components';
 
 import { useStorage } from './src/hooks';
 import Routes from './src/routes/Routes';
 
 const App: React.FC = () => {
-  const { getStorage, setStorage } = useStorage();
+  const { getStorage } = useStorage();
   const [isLoadingComplete, setLoadingComplete] = useState(false);
   const [goToIntro, setGoToIntro] = useState(false);
 
@@ -26,15 +21,6 @@ const App: React.FC = () => {
 
   const handleLoadingError = (error: any) => {
     console.warn(error);
-  };
-
-  const onTutorialDone = async () => {
-    try {
-      await setStorage('showIntro', false);
-      setGoToIntro(false);
-    } catch (error) {
-      console.log('Error onTutorialDone');
-    }
   };
 
   const getTutorialStatus = async () => {
@@ -70,7 +56,7 @@ const App: React.FC = () => {
     <SafeAreaProvider>
       <NavigationContainer>
         <GlobalProvider>
-          {goToIntro ? <Intro onTutorialDone={onTutorialDone} /> : <Routes />}
+          <Routes goToIntro={goToIntro} />
           <Toast />
           <ModalController />
         </GlobalProvider>

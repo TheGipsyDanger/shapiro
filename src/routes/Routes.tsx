@@ -4,6 +4,10 @@ import * as views from '../views';
 
 import { inTest } from '../../app.json';
 
+interface IRoutes {
+  goToIntro: boolean;
+}
+
 const Stack = createStackNavigator();
 
 const allViews: { [key: string]: any } = {
@@ -18,17 +22,12 @@ function defineRoutesProps(name: string) {
   };
 }
 
-const flows = {
-  default: Object.keys(views),
-  test: ['Test'],
-};
+export default function Routes({ goToIntro }: IRoutes) {
+  const initialRouteName = inTest ? 'Test' : goToIntro ? 'Welcome' : 'Home';
 
-const isTestFlow = inTest ? 'test' : 'default';
-
-export default function Routes() {
   return (
-    <Stack.Navigator mode="modal">
-      {flows[isTestFlow].map((viewName: string) => (
+    <Stack.Navigator mode="modal" initialRouteName={initialRouteName}>
+      {Object.keys(views).map((viewName: string) => (
         <Stack.Screen key={viewName} {...defineRoutesProps(viewName)} />
       ))}
     </Stack.Navigator>

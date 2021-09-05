@@ -29,7 +29,7 @@ export const componentData = {
       key: 'step1',
       title: 'welcome',
       text: 'shapiro is a simple way to organize\nyour school lesson photos',
-      image: require('../../assets/shapiro.logo.black.png'),
+      image: require('../../assets/logo/white.png'),
     },
     {
       key: 'step2',

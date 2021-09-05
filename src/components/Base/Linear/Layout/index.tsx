@@ -9,7 +9,7 @@ import C from './styles';
 
 export const Linear: React.FC<ILinearLayout> = ({ children, ...props }) => {
   const { date } = useDate();
-  const { color_1, color_2 } = defineLinearColors(date.dayName.toLowerCase());
+  const { color_1, color_2 } = defineLinearColors('sunday'.toLowerCase());
   const as = props.onPress && TouchableOpacity;
   return (
     // @ts-ignore
