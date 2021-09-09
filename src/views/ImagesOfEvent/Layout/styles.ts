@@ -15,4 +15,9 @@ export default {
     width: ${Metrics.width / 4 - space[1] / 2}px;
     height: ${Metrics.width / 4 - space[1] / 2}px;
   `,
+  FakeImage: styled.View`
+    align-items: center;
+    justify-content: center;
+    height: ${Metrics.width / 3 - space[3]}px;
+  `,
 };

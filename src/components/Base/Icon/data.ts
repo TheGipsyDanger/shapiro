@@ -8,5 +8,3 @@ export interface IIcon {
 }
 
 export interface IIconLayout extends IIcon {}
-
-export interface IIconDefine {}

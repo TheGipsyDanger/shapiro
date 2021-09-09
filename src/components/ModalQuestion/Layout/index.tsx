@@ -17,10 +17,15 @@ export const ModalQuestion: React.FC<IModalQuestionLayout> = ({
         'As fotos ainda ficaram salvas no seu device, só não estará mais no shapiro.'
       }
     </ModalDescription>
-    <Wrapped flexDirection="row" justifyContent="flex-end">
-      <Button title="Cancelar" onPress={cancel} color="green" />
+    <Wrapped flexDirection="row">
+      <Wrapped flex={1} />
+      <Wrapped flex={1}>
+        <Button title="Cancelar" onPress={cancel} />
+      </Wrapped>
       <Wrapped mx={1} />
-      <Button title="Deletar" onPress={remove} color="red" />
+      <Wrapped flex={1}>
+        <Button title="Deletar" onPress={remove} />
+      </Wrapped>
     </Wrapped>
   </Wrapped>
 );

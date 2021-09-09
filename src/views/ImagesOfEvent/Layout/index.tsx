@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FlatList } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
-import { ModalHeader, Page, Wrapped, ActionButton } from '~/components';
+import { ModalHeader, Page, Wrapped, ActionButton, Text } from '~/components';
 
 import { IImagesOfEventLayout } from '../data';
 
@@ -18,6 +18,13 @@ export const ImagesOfEvent: React.FC<IImagesOfEventLayout> = ({
       <StatusBar style="dark" />
       <ModalHeader title={`${currentEvent.name}`} />
       <FlatList
+        ListEmptyComponent={
+          <Wrapped mx={2} bg="clean" flex={1} borderRadius="square">
+            <C.FakeImage>
+              <Text>{'No Photos'}</Text>
+            </C.FakeImage>
+          </Wrapped>
+        }
         testID={`ImagesOfEventList`}
         numColumns={4}
         data={currentEvent.images}
