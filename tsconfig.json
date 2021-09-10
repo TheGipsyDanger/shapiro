@@ -4,6 +4,10 @@
     "paths": {
       "~/*": [
         "./src/*"
+      ],
+      "@/*": [
+        "./src/views/*/data.ts",
+        "./src/components/*/data.ts",
       ]
     },
     "allowSyntheticDefaultImports": true,

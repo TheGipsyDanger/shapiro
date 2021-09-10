@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useEvent } from '~/hooks';
 
-import { IShowImages } from './data';
+import { IShowImages } from '@/ShowImages';
 import { ShowImages as Layout } from './Layout';
 
 export const ShowImages: React.FC<IShowImages> = props => {
@@ -14,13 +14,13 @@ export const ShowImages: React.FC<IShowImages> = props => {
     url: img,
   }));
 
-  const swipeCarrousel = (index: any) => {
+  function swipeCarrousel(index: number) {
     setImageIndex(index);
-  };
+  }
 
-  const changeBottomCarrouselIndex = (index: number) => {
+  function changeBottomCarrouselIndex(index: number) {
     setImageIndex(index);
-  };
+  }
 
   const layoutProps = {
     ...props,

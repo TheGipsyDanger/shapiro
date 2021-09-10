@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import { useEvent, useModal } from '~/hooks';
 
-import { IImagesOfEvent } from './data';
+import { IImagesOfEvent } from '@/ImagesOfEvent';
 import { ImagesOfEvent as Layout } from './Layout';
 
 export const ImagesOfEvent: React.FC<IImagesOfEvent> = props => {

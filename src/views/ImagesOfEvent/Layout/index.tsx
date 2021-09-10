@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 
 import { ModalHeader, Page, Wrapped, ActionButton, Text } from '~/components';
 
-import { IImagesOfEventLayout } from '../data';
+import { IImagesOfEventLayout } from '@/ImagesOfEvent';
 
 import C from './styles';
 

@@ -3,7 +3,6 @@ import { useEffect, useState, useRef } from 'react';
 import { Camera } from 'expo-camera';
 import { Linking } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
 import * as MediaLibrary from 'expo-media-library';
 
 import { useEvent, useDate, useAlert } from '~/hooks';
@@ -14,7 +13,7 @@ import {
   createEventFactory,
 } from '~/utils';
 
-import { IShapiroCamera, IPermission, IPermissionCheck } from './data';
+import { IShapiroCamera, IPermission, IPermissionCheck } from '@/ShapiroCamera';
 import { ShapiroCamera as Layout } from './Layout';
 
 export const ShapiroCamera: React.FC<IShapiroCamera> = props => {

@@ -1,11 +1,11 @@
 import * as React from 'react';
-import ImageViewer from 'react-native-image-zoom-viewer';
 import { StatusBar } from 'expo-status-bar';
 import { initialWindowMetrics } from 'react-native-safe-area-context';
+import ImageViewer from 'react-native-image-zoom-viewer';
 
-import { ModalHeader, Wrapped, HorizontalCarousel } from '../../../components';
+import { ModalHeader, Wrapped, HorizontalCarousel } from '~/components';
 
-import { IShowImagesLayout } from '../data';
+import { IShowImagesLayout } from '@/ShowImages';
 
 export const ShowImages: React.FC<IShowImagesLayout> = ({
   images,

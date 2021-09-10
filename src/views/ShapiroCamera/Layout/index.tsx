@@ -13,7 +13,7 @@ import {
   CameraButtons,
 } from '~/components';
 
-import { IShapiroCameraLayout } from '../data';
+import { IShapiroCameraLayout } from '@/ShapiroCamera';
 
 import C from './styles';
 

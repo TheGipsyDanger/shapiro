@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useEvent } from '~/hooks';
 import { createEventFactory } from '~/utils';
 
-import { IEventsOfDay } from './data';
+import { IEventsOfDay } from '@/EventsOfDay';
 import { EventsOfDay as Layout } from './Layout';
 
 export const EventsOfDay: React.FC<IEventsOfDay> = props => {

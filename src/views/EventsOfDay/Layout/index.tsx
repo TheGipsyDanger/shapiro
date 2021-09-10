@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 
 import { Page, Scroll, Wrapped, EventCell, ModalHeader } from '~/components';
 
-import { IEventsOfDayLayout } from '../data';
+import { IEventsOfDayLayout } from '@/EventsOfDay';
 
 export const EventsOfDay: React.FC<IEventsOfDayLayout> = ({
   events,

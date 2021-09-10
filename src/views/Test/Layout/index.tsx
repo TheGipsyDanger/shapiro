@@ -2,8 +2,8 @@ import * as React from 'react';
 import { Button } from 'react-native';
 import { useState, useEffect } from 'react';
 
-import { Page } from '../../../components';
-import { useModal, useCreateEvent } from '../../../hooks';
+import { Page } from '~/components';
+import { useModal, useCreateEvent } from '~/hooks';
 
 import { ITestLayout } from '../data';
 

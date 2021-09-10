@@ -19,7 +19,7 @@ export const HorizontalCarousel: React.FC<IHorizontalCarousel> = props => {
   }, [imageIndex]);
 
   const changeIndex = (index: number) => {
-    props.changeBottomCarrouselIndex(index);
+    props.swipeCarrousel(index);
     //@ts-ignore
     flatlistRef?.current?.scrollToIndex({
       animated: true,

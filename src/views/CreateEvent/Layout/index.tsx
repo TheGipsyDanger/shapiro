@@ -12,7 +12,7 @@ import {
   EventNameInput,
 } from '~/components';
 
-import { ICreateEventLayout } from '../data';
+import { ICreateEventLayout } from '@/CreateEvent';
 
 const Separator = ({ children, ...props }: any) => (
   <Wrapped mb={2} {...props}>

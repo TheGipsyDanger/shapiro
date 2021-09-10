@@ -1,7 +1,7 @@
 export interface IHorizontalCarousel {
   imageIndex: number;
   images: string[];
-  changeBottomCarrouselIndex(imageIndex: any): void;
+  swipeCarrousel(imageIndex: any): void;
 }
 
 export interface IHorizontalCarouselLayout extends IHorizontalCarousel {

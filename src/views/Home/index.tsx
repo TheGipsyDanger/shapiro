@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useEvent, useDate, useAlert } from '~/hooks';
 import { createDaysFactory, IDayNames } from '~/utils';
 
-import { IHome } from './data';
+import { IHome } from '@/Home';
 import { Home as Layout } from './Layout';
 
 export const Home: React.FC<IHome> = props => {

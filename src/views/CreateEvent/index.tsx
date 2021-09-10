@@ -10,7 +10,7 @@ import {
   createEventFactory,
 } from '~/utils';
 
-import { ICreateEvent } from './data';
+import { ICreateEvent } from '@/CreateEvent';
 import { CreateEvent as Layout } from './Layout';
 
 export const CreateEvent: React.FC<ICreateEvent> = props => {
