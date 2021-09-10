@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import { ModalQuestion } from '../ModalQuestion';
-import { ModalHourPicker } from '../ModalHourPicker';
+import { ModalQuestion } from '~/components/ModalQuestion';
+import { ModalHourPicker } from '~/components/ModalHourPicker';
 
-import { useModal } from '../../hooks';
-import { IElementMap } from '../../utils';
+import { useModal } from '~/hooks';
+import { IElementMap } from '~/utils';
 
 export const ModalController: React.FC = () => {
   const { modalName } = useModal();

@@ -1,10 +1,10 @@
 import * as React from 'react';
-import * as icons from '@expo/vector-icons/';
+import * as icons from '@expo/vector-icons';
 
-import { Wrapped } from '../../Wrapped';
+import { Wrapped } from '~/components/Base/Wrapped';
 
-import { colors } from '../../../../hooks/Theme';
-import { IIconLayout } from '../data';
+import { colors } from '~/hooks/Theme';
+import { IIconLayout } from '@/Icon';
 
 const Main = ({ lib, ...props }: IIconLayout) => {
   // @ts-ignore

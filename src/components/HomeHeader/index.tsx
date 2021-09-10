@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useDate } from '~/hooks';
 
-import { IHomeHeader } from './data';
+import { IHomeHeader } from '@/HomeHeader';
 import { HomeHeader as Layout } from './Layout';
 
 export const HomeHeader: React.FC<IHomeHeader> = props => {

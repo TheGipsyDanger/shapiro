@@ -12,7 +12,6 @@ export const ShowImages: React.FC<IShowImagesLayout> = ({
   imageIndex,
   imagesForModal,
   swipeCarrousel,
-  ...props
 }) => (
   <>
     <StatusBar style="light" />
@@ -37,7 +36,7 @@ export const ShowImages: React.FC<IShowImagesLayout> = ({
       bottom={initialWindowMetrics?.insets.bottom}
       left={0}
       right={0}>
-      <HorizontalCarousel {...{ images, imageIndex, ...props }} />
+      <HorizontalCarousel {...{ images, imageIndex, swipeCarrousel }} />
     </Wrapped>
   </>
 );

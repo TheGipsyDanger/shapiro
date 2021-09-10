@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Wrapped, Text } from '~/components/Base';
 
-import { IDayCellLayout } from '../data';
+import { IDayCellLayout } from '@/DayCell';
 
 export const DayCell: React.FC<IDayCellLayout> = ({
   day,

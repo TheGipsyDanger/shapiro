@@ -1,9 +1,8 @@
 import * as React from 'react';
 
-import { Wrapped, Text } from '~/components/Base';
-import { Icon } from '~/components/Base/Icon';
+import { Wrapped, Text, Icon } from '~/components/Base';
 
-import { IModalHeaderLayout } from '../data';
+import { IModalHeaderLayout } from '@/ModalHeader';
 
 export const ModalHeader: React.FC<IModalHeaderLayout> = ({
   onPress,

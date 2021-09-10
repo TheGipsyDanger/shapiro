@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Metrics } from '~/styles';
 
-import { IDayCell } from './data';
+import { IDayCell } from '@/DayCell';
 import { DayCell as Layout } from './Layout';
 
 const { width } = Metrics;

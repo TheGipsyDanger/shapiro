@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useEvent } from '~/hooks';
 import { createEventFactory } from '~/utils';
 
-import { IEventCell } from './data';
+import { IEventCell } from '@/EventCell';
 import { EventCell as Layout } from './Layout';
 
 export const EventCell: React.FC<IEventCell> = props => {

@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { Platform } from 'react-native';
-import { IPageLayout } from '../data';
-import { Wrapped } from '../../Wrapped';
+
+import { Wrapped } from '~/components/Base/Wrapped';
+
+import { IPageLayout } from '@/Page';
 import * as C from './styles';
 
 export const Page: React.FC<IPageLayout> = ({

@@ -18,17 +18,12 @@ export const ShowImages: React.FC<IShowImages> = props => {
     setImageIndex(index);
   }
 
-  function changeBottomCarrouselIndex(index: number) {
-    setImageIndex(index);
-  }
-
   const layoutProps = {
     ...props,
     images,
     imageIndex,
     imagesForModal,
     swipeCarrousel,
-    changeBottomCarrouselIndex,
   };
 
   return <Layout {...layoutProps} />;

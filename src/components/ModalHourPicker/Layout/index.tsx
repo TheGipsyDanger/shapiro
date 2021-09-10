@@ -5,7 +5,7 @@ import { Button } from '~/components/Button';
 import { Wrapped } from '~/components/Base';
 import { ModalTitle } from '~/components/Base/Modal';
 
-import { IModalHourPickerLayout } from '../data';
+import { IModalHourPickerLayout } from '@/ModalHourPicker';
 
 export const ModalHourPicker: React.FC<IModalHourPickerLayout> = ({
   date,

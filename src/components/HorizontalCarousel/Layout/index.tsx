@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { FlatList } from 'react-native';
 
-import { Wrapped } from '../../Base';
+import { Wrapped } from '~/components/Base';
 import { Metrics } from '~/styles';
 
-import { IHorizontalCarouselLayout } from '../data';
+import { IHorizontalCarouselLayout } from '@/HorizontalCarousel';
 import C from './styles';
 
 export const HorizontalCarousel: React.FC<IHorizontalCarouselLayout> = ({

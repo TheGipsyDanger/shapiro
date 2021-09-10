@@ -4,7 +4,7 @@ import { Modal } from '~/components/Base';
 import { useEvent, useModal, useAlert } from '~/hooks';
 import { createEventFactory, createDaysFactory } from '~/utils';
 
-import { IModalQuestion } from './data';
+import { IModalQuestion } from '@/ModalQuestion';
 import { ModalQuestion as Layout } from './Layout';
 
 export const ModalQuestion: React.FC<IModalQuestion> = props => {

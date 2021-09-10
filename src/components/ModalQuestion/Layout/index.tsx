@@ -4,7 +4,7 @@ import { Button } from '~/components/Button';
 import { Wrapped } from '~/components/Base';
 import { ModalTitle, ModalDescription } from '~/components/Base/Modal';
 
-import { IModalQuestionLayout } from '../data';
+import { IModalQuestionLayout } from '@/ModalQuestion';
 
 export const ModalQuestion: React.FC<IModalQuestionLayout> = ({
   cancel,

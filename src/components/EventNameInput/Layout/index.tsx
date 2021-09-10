@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Wrapped, Text } from '~/components/Base';
 import { FormError } from '~/components/FormError';
 
-import { IEventNameInputLayout } from '../data';
+import { IEventNameInputLayout } from '@/EventNameInput';
 import C from './styles';
 
 export const EventNameInput: React.FC<IEventNameInputLayout> = ({

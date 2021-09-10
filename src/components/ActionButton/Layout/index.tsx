@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Wrapped, Icon } from '../../Base';
+import { Wrapped, Icon } from '~/components/Base';
 
-import { IActionButtonLayout } from '../data';
+import { IActionButtonLayout } from '@/ActionButton';
 
 export const ActionButton: React.FC<IActionButtonLayout> = ({
   icon,

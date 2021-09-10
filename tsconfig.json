@@ -8,6 +8,7 @@
       "@/*": [
         "./src/views/*/data.ts",
         "./src/components/*/data.ts",
+        "./src/components/Base/*/data.ts",
       ]
     },
     "allowSyntheticDefaultImports": true,

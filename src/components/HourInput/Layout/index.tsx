@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Wrapped, Text } from '~/components/Base';
 import { FormError } from '~/components/FormError';
 
-import { IHourInputLayout } from '../data';
+import { IHourInputLayout } from '@/HourInput';
 import C from './styles';
 
 export const HourInput: React.FC<IHourInputLayout> = ({

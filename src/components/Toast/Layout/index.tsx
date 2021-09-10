@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Animated } from 'react-native';
 
-import { IToastLayout } from '../data';
+import { IToastLayout } from '@/Toast';
 import C from './styles';
 
 export const Toast: React.FC<IToastLayout> = ({ top }) => (

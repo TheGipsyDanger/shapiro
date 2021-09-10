@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Wrapped } from '~/components/Base/Wrapped';
-import { IModalLayout } from '../data';
+import { IModalLayout } from '@/Modal';
 import C from './styles';
 
 export const Modal: React.FC<IModalLayout> = ({

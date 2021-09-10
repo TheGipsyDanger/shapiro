@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { IScrollLayout } from '../data';
+
+import { IScrollLayout } from '@/Scroll';
 import C from './styles';
 
 export const Scroll: React.FC<IScrollLayout> = ({

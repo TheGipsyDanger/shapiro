@@ -7,5 +7,4 @@ export interface IShowImagesLayout extends IShowImages {
   imagesForModal: IImagesModal[];
   imageIndex: number;
   swipeCarrousel(imageIndex: any): void;
-  changeBottomCarrouselIndex(imageIndex: any): void;
 }

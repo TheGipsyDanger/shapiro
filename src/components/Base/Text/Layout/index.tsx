@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { ITextLayout } from '../data';
+
+import { ITextLayout } from '@/Text';
 import C from './styles';
 
 export const Text: React.FC<ITextLayout> = ({ size = 5, color, ...props }) => (

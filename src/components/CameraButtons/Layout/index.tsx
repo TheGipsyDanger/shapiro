@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Wrapped, Linear, Icon } from '../../Base';
+import { Wrapped, Linear, Icon } from '~/components/Base';
 
-import { ICameraButtonsLayout } from '../data';
+import { ICameraButtonsLayout } from '@/CameraButtons';
 
 const IconButton = ({ icon, lib, onPress }: any) => (
   <Wrapped height={40} width={40} center>

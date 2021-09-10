@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import { Text } from '../Text';
-import { useModal } from '../../../hooks';
+import { Text } from '~/components/Base/Text';
+import { useModal } from '~/hooks';
 
-import { IModal } from './data';
+import { IModal } from '@/Modal';
 import { Modal as Layout } from './Layout';
 
 export const Modal: React.FC<IModal> = ({

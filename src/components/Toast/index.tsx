@@ -6,7 +6,7 @@ import { initialWindowMetrics } from 'react-native-safe-area-context';
 import { Wrapped, Text } from '~/components/Base';
 import { useAlert } from '~/hooks';
 
-import { IToast } from './data';
+import { IToast } from '@/Toast';
 
 export const Toast: React.FC<IToast> = props => {
   const insets = initialWindowMetrics?.insets?.top || 0;

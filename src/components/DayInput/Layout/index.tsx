@@ -4,7 +4,7 @@ import { FlatList } from 'react-native';
 import { Text, Card, Wrapped } from '~/components/Base';
 
 import { Metrics } from '~/styles';
-import { IDayInputLayout } from '../data';
+import { IDayInputLayout } from '@/DayInput';
 
 export const DayInput: React.FC<IDayInputLayout> = ({
   days,

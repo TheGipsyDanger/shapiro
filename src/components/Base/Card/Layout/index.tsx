@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { ICardLayout } from '../data';
 import { TouchableOpacity } from 'react-native';
+
+import { ICardLayout } from '@/Card';
 import C from './styles';
 
 export const Card: React.FC<ICardLayout> = ({

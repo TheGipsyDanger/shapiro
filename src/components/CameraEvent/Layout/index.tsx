@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Wrapped, Text } from '~/components/Base';
 
-import { ICameraEventLayout } from '../data';
+import { ICameraEventLayout } from '@/CameraEvent';
 
 export const CameraEvent: React.FC<ICameraEventLayout> = ({
   event,

@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Wrapped, Text, Linear } from '~/components/Base';
+import { Wrapped, Text } from '~/components/Base';
 
-import { IButtonLayout } from '../data';
+import { IButtonLayout } from '@/Button';
 
 export const Button: React.FC<IButtonLayout> = ({
   title,

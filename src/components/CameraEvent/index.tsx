@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-import { ICameraEvent } from './data';
+import { ICameraEvent } from '@/CameraEvent';
 import { CameraEvent as Layout } from './Layout';
 
 export const CameraEvent: React.FC<ICameraEvent> = props => {

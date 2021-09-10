@@ -3,7 +3,7 @@ import { useRef, useEffect } from 'react';
 
 import { useEvent } from '~/hooks';
 
-import { IHorizontalCarousel } from './data';
+import { IHorizontalCarousel } from '@/HorizontalCarousel';
 import { HorizontalCarousel as Layout } from './Layout';
 
 export const HorizontalCarousel: React.FC<IHorizontalCarousel> = props => {
@@ -11,21 +11,22 @@ export const HorizontalCarousel: React.FC<IHorizontalCarousel> = props => {
   const { imageIndex } = useEvent();
 
   useEffect(() => {
-    //@ts-ignore
-    flatlistRef?.current?.scrollToIndex({
-      animated: true,
-      index: imageIndex,
-    });
+    scrollList(imageIndex);
   }, [imageIndex]);
 
-  const changeIndex = (index: number) => {
-    props.swipeCarrousel(index);
+  function changeIndex(index: number) {
+    const { swipeCarrousel } = props;
+    swipeCarrousel(index);
+    scrollList(index);
+  }
+
+  function scrollList(index: number) {
     //@ts-ignore
     flatlistRef?.current?.scrollToIndex({
       animated: true,
       index: index,
     });
-  };
+  }
 
   const layoutProps = {
     ...props,

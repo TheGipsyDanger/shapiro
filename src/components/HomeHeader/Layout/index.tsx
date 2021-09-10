@@ -1,10 +1,9 @@
 import * as React from 'react';
 
-import { Wrapped } from '~/components/Base/Wrapped';
-import { Text as BaseText } from '~/components/Base/Text';
+import { Wrapped, Text as BaseText } from '~/components/Base';
 
-import { IDate } from '~/utils/interfaces';
-import { IHomeHeaderLayout } from '../data';
+import { IDate } from '~/utils';
+import { IHomeHeaderLayout } from '@/HomeHeader';
 
 const Text = ({ text, ...props }: any) => (
   <BaseText font="black" color="clean" textTransform="uppercase" {...props}>

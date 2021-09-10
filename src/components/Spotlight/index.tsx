@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useEvent } from '~/hooks';
 import { createEventFactory, createDaysFactory } from '~/utils';
 
-import { ISpotlight } from './data';
+import { ISpotlight } from '@/Spotlight';
 import { Spotlight as Layout } from './Layout';
 
 export const Spotlight: React.FC<ISpotlight> = props => {
@@ -18,18 +18,18 @@ export const Spotlight: React.FC<ISpotlight> = props => {
 
   const Days = createDaysFactory(days);
 
-  const selectEvent = (id: string) => {
+  function selectEvent(id: string) {
     const dayObj = Days.selectedDay(day);
     const currentEvent = Event.getCurrentEvent(id);
     setSelectedDay(dayObj);
     setCurrentEvent(currentEvent);
     navigation.navigate('ImagesOfEvent');
-  };
+  }
 
-  const openDay = () => {
+  function openDay() {
     setSelectedDay(Days.selectedDay(day));
     navigation.navigate('EventsOfDay');
-  };
+  }
 
   const layoutProps = {
     ...props,

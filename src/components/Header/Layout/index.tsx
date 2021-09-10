@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Children } from 'react';
+
 import { IHeaderLayout } from '../data';
-import { Wrapped } from '../../Base/Wrapped';
-import { Text } from '../../Base/Text';
+
+import { Wrapped, Text } from '~/components/Base';
 
 export const Header: React.FC<IHeaderLayout> = ({ children, title }) => {
   const [left, right] = Children.toArray(children);

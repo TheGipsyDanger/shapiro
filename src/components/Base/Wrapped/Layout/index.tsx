@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { IWrappedLayout } from '../data';
 import { TouchableOpacity } from 'react-native';
+
+import { IWrappedLayout } from '@/Wrapped';
 import C from './styles';
 
 export const Wrapped: React.FC<IWrappedLayout> = ({

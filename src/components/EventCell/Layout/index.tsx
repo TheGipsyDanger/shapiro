@@ -1,17 +1,14 @@
 import * as React from 'react';
 
-import { Wrapped } from '~/components/Base/Wrapped';
-import { Text } from '~/components/Base/Text';
-import { shadows } from '~/hooks/Theme';
+import { Wrapped, Text } from '~/components/Base';
 
-import { IEventCellLayout, IImage, IImages } from '../data';
-
+import { IEventCellLayout, IImage } from '@/EventCell';
 import C from './styles';
 
 const Image = ({ image }: IImage) => (
   <Wrapped
     testID={image !== 'fakeImage' ? 'EventCellImage' : 'EventCellImageFake'}
-    boxShadow={shadows.cell}>
+    boxShadow={'cell'}>
     <C.Image
       source={{
         uri: image,

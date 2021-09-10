@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { IEventNameInput } from './data';
+
+import { IEventNameInput } from '@/EventNameInput';
 import { EventNameInput as Layout } from './Layout';
 
 export const EventNameInput: React.FC<IEventNameInput> = props => (

@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { IHourInput } from './data';
+
+import { IHourInput } from '@/HourInput';
 import { HourInput as Layout } from './Layout';
 
 export const HourInput: React.FC<IHourInput> = props => {

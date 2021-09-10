@@ -1,9 +1,9 @@
 import * as React from 'react';
 import AppIntroSlider from 'react-native-app-intro-slider';
 
-import { Page, Wrapped, Text, Linear } from '../../Base';
+import { Page, Wrapped, Text, Linear } from '~/components/Base';
 
-import { IIntroLayout, ISlide, IItem, IButtonSlide } from '../data';
+import { IIntroLayout, ISlide, IItem, IButtonSlide } from '@/Intro';
 import C from './styles';
 
 const Button = ({ id, label, onPress }: IButtonSlide) => (

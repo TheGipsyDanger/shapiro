@@ -5,11 +5,11 @@ import moment from 'moment';
 import { Modal } from '~/components/Base';
 import { useModal, useCreateEvent } from '~/hooks';
 
-import { IModalHourPicker } from './data';
+import { IModalHourPicker } from '@/ModalHourPicker';
 import { ModalHourPicker as Layout } from './Layout';
 
 export const ModalHourPicker: React.FC<IModalHourPicker> = props => {
-  const { type, hour, setHour: setDateHook } = useCreateEvent();
+  const { type, setHour: setDateHook } = useCreateEvent();
   const { closeModal } = useModal();
 
   const [date, setDate] = useState<Date>(new Date());
