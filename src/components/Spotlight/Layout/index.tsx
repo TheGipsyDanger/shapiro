@@ -7,7 +7,9 @@ import { ISpotlightLayout } from '@/Spotlight';
 
 export const Spotlight: React.FC<ISpotlightLayout> = ({
   day,
+  edit,
   events,
+  remove,
   onPress,
   openDay,
   showMore,
@@ -19,7 +21,7 @@ export const Spotlight: React.FC<ISpotlightLayout> = ({
     {hasEvents ? (
       <Wrapped flex={1}>
         {events.map((event, index) => (
-          <Event key={index} {...{ event, selectEvent }} />
+          <Event key={index} {...{ event, selectEvent, edit, remove }} />
         ))}
         {showMore && <ShowMore {...{ openDay }} />}
       </Wrapped>

@@ -1,15 +1,15 @@
-import styled from 'styled-components/native'
+import styled from 'styled-components/native';
+
+import { Wrapped, Icon } from '~/components/Base';
 
 export default {
-  Container: styled.View`
-    flex: 1;
-    background: #fff;
-    align-items: center;
-    justify-content: center;
-  `,
-  Text: styled.Text`
-    font-size: 18px;
-    color: #f37321;
-    font-weight: bold;
-  `
-}
+  Icon: styled(Icon).attrs({
+    color: 'black',
+    size: 24,
+    lib: 'MaterialIcons',
+  })``,
+  Press: styled(Wrapped).attrs({
+    center: true,
+    pl: 2,
+  })``,
+};

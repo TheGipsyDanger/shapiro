@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-import { useEvent } from '~/hooks';
-import { createEventFactory, createDaysFactory } from '~/utils';
+import { useEvent, useAlert, useCreateEvent } from '~/hooks';
+import { createEventFactory, createDaysFactory, IEditEvent } from '~/utils';
 
 import { ISpotlight } from '@/Spotlight';
 import { Spotlight as Layout } from './Layout';
@@ -10,13 +10,20 @@ import { Spotlight as Layout } from './Layout';
 export const Spotlight: React.FC<ISpotlight> = props => {
   const navigation = useNavigation();
 
-  const { spotlightDay, setCurrentEvent, days, setSelectedDay } = useEvent();
+  const { showAlert } = useAlert();
+  const { setEventToEdit } = useCreateEvent();
+  const {
+    days,
+    updateDays,
+    spotlightDay,
+    setSelectedDay,
+    setCurrentEvent,
+  } = useEvent();
 
   const Event = createEventFactory(spotlightDay);
+  const Days = createDaysFactory(days);
 
   const { day, events } = Event.formattingTheEvent();
-
-  const Days = createDaysFactory(days);
 
   function selectEvent(id: string) {
     const dayObj = Days.selectedDay(day);
@@ -31,11 +38,38 @@ export const Spotlight: React.FC<ISpotlight> = props => {
     navigation.navigate('EventsOfDay');
   }
 
+  function edit(id: string) {
+    const event = Event.getCurrentEvent(id);
+    setEventToEdit(event);
+    props.onPress();
+  }
+
+  function createEvent() {
+    setEventToEdit({} as IEditEvent);
+    props.onPress();
+  }
+
+  function remove(id: string) {
+    const { name } = Event.getCurrentEvent(id);
+
+    const days = Days.updateDay(Event.deleteEvent(id));
+    updateDays(days);
+
+    showAlert({
+      title: `${name} deleted`,
+      message: 'Successfully delete event.',
+      type: 'success',
+    });
+  }
+
   const layoutProps = {
     ...props,
     day,
+    edit,
+    remove,
     openDay,
     selectEvent,
+    onPress: createEvent,
     hasEvents: !!events.length,
     showMore: events.length > 3,
     events: Event.sortEvents(events).slice(0, 3),

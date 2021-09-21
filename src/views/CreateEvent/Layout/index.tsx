@@ -26,6 +26,9 @@ export const CreateEvent: React.FC<ICreateEventLayout> = ({
   onChange,
   ...props
 }) => {
+  console.log('Renan: 1', isValid);
+  console.log('Renan: 2', touched);
+
   return (
     <Wrapped flex={1} bg="white">
       <Page>

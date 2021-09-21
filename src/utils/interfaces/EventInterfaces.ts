@@ -81,6 +81,8 @@ export interface IEvent {
   images: Array<string>;
 }
 
+export interface IEditEvent extends Omit<IEvent, 'images'> {}
+
 export interface IFormattedEvent {
   day: IDayNames;
   events: IEvent[];

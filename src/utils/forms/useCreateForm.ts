@@ -3,13 +3,14 @@ import moment from 'moment';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
-export const useCreateForm = (onSubmit: any) => {
+export const useCreateForm = (onSubmit: any, event: any) => {
   return useFormik({
+    initialErrors: {},
     initialValues: {
-      name: '',
+      name: event?.name ? event.name : '',
       day: moment().format('dddd').toLowerCase(),
-      start: '',
-      final: '',
+      start: event?.initial ? event.initial : '',
+      final: event?.final ? event.final : '',
     },
     validationSchema: yup.object().shape({
       name: yup.string().required('Este campo é obrigatório'),

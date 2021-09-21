@@ -4,18 +4,18 @@ export interface ISpotlight {
 }
 export interface ISpotlightLayout extends ISpotlight {
   day: string;
+  events: IEvent[];
   showMore: boolean;
   hasEvents: boolean;
-  events: IEvent[];
-  selectEvent(name: string): void;
   openDay(): void;
+  edit(id: string): void;
+  remove(id: string): void;
+  selectEvent(name: string): void;
 }
 export interface ISpotlightHeaderLayout
   extends Pick<ISpotlightLayout, 'day' | 'onPress'> {}
 export interface ISpotlightEventLayout
-  extends Pick<ISpotlightLayout, 'selectEvent'> {
+  extends Pick<ISpotlightLayout, 'selectEvent' | 'edit' | 'remove'> {
   event: IEvent;
 }
-export interface ISpotlightShowMore {
-  openDay(): void;
-}
+export interface ISpotlightShowMore extends Pick<ISpotlightLayout, 'openDay'> {}
