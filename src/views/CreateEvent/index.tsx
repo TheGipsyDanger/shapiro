@@ -16,18 +16,19 @@ import { CreateEvent as Layout } from './Layout';
 
 export const CreateEvent: React.FC<ICreateEvent> = props => {
   const navigation = useNavigation();
-  const { days, updateDays } = useEvent();
-  const { date } = useDate();
-  const [daySelected, setDaySelected] = useState(date.dayName.toLowerCase());
-  const { showAlert } = useAlert();
-  const { openModal } = useModal();
   const {
     hour,
     type,
     setType,
-    setHour: setHourHook,
     eventToEdit,
+    setHour: setHourHook,
   } = useCreateEvent();
+  const { days, updateDays } = useEvent();
+  const { date } = useDate();
+  const { showAlert } = useAlert();
+  const { openModal } = useModal();
+
+  const [daySelected, setDaySelected] = useState(date.dayName.toLowerCase());
 
   const Days = createDaysFactory(days);
 
@@ -36,15 +37,12 @@ export const CreateEvent: React.FC<ICreateEvent> = props => {
   }, [hour]);
 
   useEffect(() => {
-    const hasEvent = !isEmpty(eventToEdit);
-    hasEvent && touched();
+    !isEmpty(eventToEdit) && form.setTouched({ name: true });
   }, []);
 
   const form = useCreateForm(onSubmit, eventToEdit);
 
-  function touched() {
-    form.setTouched({ name: true });
-  }
+  const hasEvent = !isEmpty(eventToEdit);
 
   function onSubmit() {
     const { values } = form;
@@ -52,17 +50,25 @@ export const CreateEvent: React.FC<ICreateEvent> = props => {
     const dayToSave = Days.selectedDay(values.day as IDayNames);
     const Event = createEventFactory(dayToSave);
 
-    const { success, errors } = Event.checkEventIsValid(values);
+    const { success, errors } = Event.checkEventIsValid(
+      values,
+      eventToEdit.id || ''
+    );
 
     if (success) {
-      const days = Days.updateDay(Event.createEvent(values));
+      const days = Days.updateDay(
+        hasEvent
+          ? Event.editEvent(values, eventToEdit.id)
+          : Event.createEvent(values)
+      );
       updateDays(days);
       showAlert({
-        title: `${values.name} created`,
-        message: 'Successfully created event.',
+        title: `${values.name} ${hasEvent ? `updated` : `created`} `,
+        message: `Successfully ${hasEvent ? `updated` : `created`} event.`,
         type: 'success',
       });
-      clean();
+      setType('start');
+      setHourHook('');
       navigation.goBack();
     } else {
       showAlert({
@@ -71,11 +77,6 @@ export const CreateEvent: React.FC<ICreateEvent> = props => {
         type: 'error',
       });
     }
-  }
-
-  function clean() {
-    setType('start');
-    setHourHook('');
   }
 
   function openHourPicker(type: string) {
@@ -103,6 +104,7 @@ export const CreateEvent: React.FC<ICreateEvent> = props => {
     setDaySelected,
     openHourPicker,
     days: Days.daysName(),
+    title: hasEvent ? 'Edit event' : 'Create event';,
   };
 
   return <Layout {...layoutProps} />;

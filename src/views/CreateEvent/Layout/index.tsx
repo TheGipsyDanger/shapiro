@@ -22,18 +22,16 @@ const Separator = ({ children, ...props }: any) => (
 
 export const CreateEvent: React.FC<ICreateEventLayout> = ({
   form: { errors, values, touched, submitForm, isValid },
-  openHourPicker,
+  title,
   onChange,
+  openHourPicker,
   ...props
 }) => {
-  console.log('Renan: 1', isValid);
-  console.log('Renan: 2', touched);
-
   return (
     <Wrapped flex={1} bg="white">
       <Page>
         <StatusBar style="dark" />
-        <ModalHeader title="Create event" />
+        <ModalHeader {...{ title }} />
         <Scroll mx={2}>
           <Separator>
             <EventNameInput {...{ errors, values, touched, onChange }} />
@@ -60,7 +58,7 @@ export const CreateEvent: React.FC<ICreateEventLayout> = ({
 
           <Separator mt={2}>
             <Button
-              title={'Create event'}
+              {...{ title }}
               onPress={() => submitForm()}
               disabled={!(isValid && touched.name)}
             />

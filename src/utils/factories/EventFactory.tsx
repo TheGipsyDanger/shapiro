@@ -17,12 +17,16 @@ interface IEventFactory {
   formattingTheEvent(): IFormattedEvent;
   formattingImages(images: string[]): IFormattedImages;
   getCurrentEvent(id: string): IEvent;
-  checkEventIsValid(values: ICreateEventForm): ICreatedEventStatus;
   createEvent(values: ICreateEventForm): IDay;
+  editEvent(values: ICreateEventForm, id: string): IDay;
   sortEvents(events: IEvent[]): IEvent[];
   getEventNow(day: IDayNames): IResp;
   updateEvent(event: IEvent): void;
   deleteEvent(id: string): IDay;
+  checkEventIsValid(
+    values: ICreateEventForm,
+    eventToEditId: string
+  ): ICreatedEventStatus;
 }
 
 export const createEventFactory = (day: IDay): IEventFactory => {
@@ -63,11 +67,16 @@ export const createEventFactory = (day: IDay): IEventFactory => {
 
   const formatTime = (hour: string): number => Number(hour.replace(':', ''));
 
-  const checkEventIsValid = (values: ICreateEventForm): ICreatedEventStatus => {
+  const checkEventIsValid = (
+    values: ICreateEventForm,
+    eventToEditId = ''
+  ): ICreatedEventStatus => {
     const start = formatTime(values.start);
     const final = formatTime(values.final);
 
-    const events = currentDay[values.day].events;
+    const events = currentDay[values.day].events.filter(
+      item => item.id !== eventToEditId
+    );
 
     const errors = events.reduce((acc: string[], curr) => {
       const eventInitial = formatTime(curr.initial);
@@ -93,15 +102,35 @@ export const createEventFactory = (day: IDay): IEventFactory => {
   const createEvent = (values: ICreateEventForm): IDay => {
     const events = currentDay[values.day].events;
 
-    const newEvent: IEvent = {
-      id: String(uuid.v1()),
-      name: values.name,
-      initial: values.start,
-      final: values.final,
-      images: [],
-    };
+    currentDay[values.day].events = [
+      ...events,
+      {
+        id: String(uuid.v1()),
+        name: values.name,
+        initial: values.start,
+        final: values.final,
+        images: [],
+      },
+    ];
 
-    currentDay[values.day].events = [...events, newEvent];
+    return currentDay;
+  };
+
+  const editEvent = (values: ICreateEventForm, id: string): IDay => {
+    const events = currentDay[values.day].events.filter(item => item.id !== id);
+
+    currentDay[values.day].events = [
+      ...events,
+      {
+        id: id,
+        name: values.name,
+        initial: values.start,
+        final: values.final,
+        images:
+          currentDay[values.day].events.find(item => item.id === id)?.images ||
+          [],
+      },
+    ];
 
     return currentDay;
   };
@@ -148,10 +177,11 @@ export const createEventFactory = (day: IDay): IEventFactory => {
   const updateEvent = (event: IEvent) => {};
 
   return {
+    editEvent,
     sortEvents,
     createEvent,
-    getEventNow,
     deleteEvent,
+    getEventNow,
     updateEvent,
     getCurrentEvent,
     formattingImages,

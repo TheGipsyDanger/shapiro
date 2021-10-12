@@ -7,11 +7,9 @@ import { CameraEvent as Layout } from './Layout';
 export const CameraEvent: React.FC<ICameraEvent> = props => {
   const navigation = useNavigation();
 
-  const goToCreateEvent = () => navigation.navigate('CreateEvent');
-
   const layoutProps = {
     ...props,
-    goToCreateEvent,
+    goToCreateEvent: () => navigation.navigate('CreateEvent'),
   };
 
   return <Layout {...layoutProps} />;

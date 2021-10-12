@@ -4,6 +4,7 @@ export interface ICreateEvent {
 
 export interface ICreateEventLayout extends ICreateEvent {
   form: any;
+  title: string;
   days: string[];
   daySelected: string;
   openHourPicker(type: string): void;

@@ -15,7 +15,7 @@ export const ModalQuestion: React.FC<IModalQuestion> = props => {
   const Event = createEventFactory(selectedDay);
   const Days = createDaysFactory(days);
 
-  const remove = () => {
+  function remove() {
     const { name, id } = currentEvent;
 
     const days = Days.updateDay(Event.deleteEvent(id));
@@ -31,12 +31,12 @@ export const ModalQuestion: React.FC<IModalQuestion> = props => {
       message: 'Successfully delete event.',
       type: 'success',
     });
-  };
+  }
 
-  const cancel = () => {
+  function cancel() {
     closeModal();
     defineFunctions([() => {}]);
-  };
+  }
 
   const layoutProps = {
     ...props,
