@@ -104,7 +104,7 @@ export const CreateEvent: React.FC<ICreateEvent> = props => {
     setDaySelected,
     openHourPicker,
     days: Days.daysName(),
-    title: hasEvent ? 'Edit event' : 'Create event';,
+    title: hasEvent ? 'Edit event' : 'Create event',
   };
 
   return <Layout {...layoutProps} />;
