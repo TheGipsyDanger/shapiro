@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useState, useEffect, useCallback } from 'react';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import isEmpty from 'lodash/isEmpty';
 
 import { useEvent, useDate, useAlert, useCreateEvent, useModal } from '~/hooks';
@@ -36,9 +36,15 @@ export const CreateEvent: React.FC<ICreateEvent> = props => {
     hour !== '' && setHour(type, hour);
   }, [hour]);
 
-  useEffect(() => {
-    !isEmpty(eventToEdit) && form.setTouched({ name: true });
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      if (isEmpty(eventToEdit)) {
+        form.resetForm();
+      } else {
+        form.setTouched({ name: true });
+      }
+    }, [])
+  );
 
   const form = useCreateForm(onSubmit, eventToEdit);
 
