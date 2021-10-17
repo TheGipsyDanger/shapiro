@@ -5,7 +5,7 @@ import { IHeaderLayout } from '../data';
 
 import { Wrapped, Text } from '~/components/Base';
 
-export const Header: React.FC<IHeaderLayout> = ({ children, title }) => {
+export const Header = ({ children, title }: IHeaderLayout) => {
   const [left, right] = Children.toArray(children);
 
   return (

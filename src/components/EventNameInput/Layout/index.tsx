@@ -6,12 +6,12 @@ import { FormError } from '~/components/FormError';
 import { IEventNameInputLayout } from '@/EventNameInput';
 import C from './styles';
 
-export const EventNameInput: React.FC<IEventNameInputLayout> = ({
+export const EventNameInput = ({
   errors,
   values,
   touched,
   onChange,
-}) => (
+}: IEventNameInputLayout) => (
   <Wrapped testID={`EventNameInput`}>
     <Text mb={2}>Event name:</Text>
     <C.Input

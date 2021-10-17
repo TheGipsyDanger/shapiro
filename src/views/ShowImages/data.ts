@@ -1,10 +1,3 @@
-import { IImagesModal } from '~/utils';
-
 export interface IShowImages {}
 
-export interface IShowImagesLayout extends IShowImages {
-  images: string[];
-  imagesForModal: IImagesModal[];
-  imageIndex: number;
-  swipeCarrousel(imageIndex: any): void;
-}
+export interface IShowImagesLayout extends IShowImages {}

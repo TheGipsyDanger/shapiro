@@ -4,11 +4,11 @@ import { Wrapped, Icon } from '~/components/Base';
 
 import { IActionButtonLayout } from '@/ActionButton';
 
-export const ActionButton: React.FC<IActionButtonLayout> = ({
+export const ActionButton = ({
   icon,
   onPress,
   type = 'default',
-}) => (
+}: IActionButtonLayout) => (
   <Wrapped
     testID={`ActionButton`}
     bg={type == 'default' ? 'green' : 'red'}

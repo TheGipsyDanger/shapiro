@@ -3,7 +3,7 @@ import * as React from 'react';
 import { IHourInput } from '@/HourInput';
 import { HourInput as Layout } from './Layout';
 
-export const HourInput: React.FC<IHourInput> = props => {
+export const HourInput = (props: IHourInput) => {
   const { values, label, placeholder } = props;
 
   const lowerLabel = label.toLowerCase();

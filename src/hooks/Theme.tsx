@@ -36,6 +36,7 @@ export const dayColors: { [key: string]: string } = {
 export const colors: { [key: string]: string } = {
   white: '#FFFFFF',
   black: '#444444',
+  total_black: '#000000',
   red: '#E05F5F',
   yellow: '#FFE483',
   orange: '#fbbf96',

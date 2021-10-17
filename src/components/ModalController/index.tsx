@@ -6,7 +6,7 @@ import { ModalHourPicker } from '~/components/ModalHourPicker';
 import { useModal } from '~/hooks';
 import { IElementMap } from '~/utils';
 
-export const ModalController: React.FC = () => {
+export const ModalController = () => {
   const { modalName } = useModal();
 
   const Modals: IElementMap = {

@@ -6,7 +6,7 @@ import { createEventFactory } from '~/utils';
 import { IEventCell } from '@/EventCell';
 import { EventCell as Layout } from './Layout';
 
-export const EventCell: React.FC<IEventCell> = props => {
+export const EventCell = (props: IEventCell) => {
   const { selectedDay } = useEvent();
 
   const Event = createEventFactory(selectedDay);

@@ -9,6 +9,12 @@ export interface IEventCellLayout extends IEventCell {
   imagesCount: number;
 }
 
+export interface ITitle {
+  name: string;
+  hour: string;
+  imagesCount: number;
+}
+
 export interface IImage {
   image: string;
 }

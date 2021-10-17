@@ -5,7 +5,7 @@ import { useDate } from '~/hooks';
 import { IHomeHeader } from '@/HomeHeader';
 import { HomeHeader as Layout } from './Layout';
 
-export const HomeHeader: React.FC<IHomeHeader> = props => {
+export const HomeHeader = (props: IHomeHeader) => {
   const { date } = useDate();
 
   const layoutProps = {

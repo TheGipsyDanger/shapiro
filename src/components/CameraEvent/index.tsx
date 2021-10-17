@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { ICameraEvent } from '@/CameraEvent';
 import { CameraEvent as Layout } from './Layout';
 
-export const CameraEvent: React.FC<ICameraEvent> = props => {
+export const CameraEvent = (props: ICameraEvent) => {
   const navigation = useNavigation();
 
   const layoutProps = {

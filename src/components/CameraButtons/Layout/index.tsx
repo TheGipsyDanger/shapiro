@@ -1,36 +1,17 @@
 import * as React from 'react';
 
-import { Wrapped, Linear, Icon } from '~/components/Base';
+import { Wrapped } from '~/components/Base';
+import { IconButton } from './IconButton';
+import { Button } from './Button';
 
 import { ICameraButtonsLayout } from '@/CameraButtons';
 
-const IconButton = ({ icon, lib, onPress }: any) => (
-  <Wrapped height={40} width={40} center>
-    <Wrapped {...{ onPress }}>
-      <Icon lib={lib} name={icon} color="white" size={30} />
-    </Wrapped>
-  </Wrapped>
-);
-
-const Button = ({ onPress }: any) => (
-  <Wrapped {...{ onPress }}>
-    <Wrapped
-      height={56}
-      width={56}
-      borderRadius="circle"
-      bg="orange"
-      overflow="hidden">
-      <Linear flex={1} />
-    </Wrapped>
-  </Wrapped>
-);
-
-export const CameraButtons: React.FC<ICameraButtonsLayout> = ({
+export const CameraButtons = ({
   flashMode,
   toggleType,
   takePicture,
   toggleFlash,
-}) => (
+}: ICameraButtonsLayout) => (
   <Wrapped
     testID={`CameraButtons`}
     px={4}

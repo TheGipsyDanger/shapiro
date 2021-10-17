@@ -7,7 +7,7 @@ import { DayCell as Layout } from './Layout';
 
 const { width } = Metrics;
 
-export const DayCell: React.FC<IDayCell> = props => {
+export const DayCell = (props: IDayCell) => {
   const size = width / 4;
 
   function defineText(day: string): string {

@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { IModalHeader } from '@/ModalHeader';
 import { ModalHeader as Layout } from './Layout';
 
-export const ModalHeader: React.FC<IModalHeader> = props => {
+export const ModalHeader = (props: IModalHeader) => {
   const navigation = useNavigation();
 
   const layoutProps = {

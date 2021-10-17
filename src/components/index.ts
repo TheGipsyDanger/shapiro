@@ -22,4 +22,5 @@ export { ActionButton } from './ActionButton';
 export { ModalQuestion } from './ModalQuestion';
 export { ModalController } from './ModalController';
 export { ModalHourPicker } from './ModalHourPicker';
+export { Gallery } from './Gallery';
 // Import component here

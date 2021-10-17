@@ -4,11 +4,11 @@ import { Wrapped, Text, Icon } from '~/components/Base';
 
 import { IModalHeaderLayout } from '@/ModalHeader';
 
-export const ModalHeader: React.FC<IModalHeaderLayout> = ({
+export const ModalHeader = ({
   onPress,
   title,
   color = 'black',
-}) => (
+}: IModalHeaderLayout) => (
   <Wrapped testID="ModalHeader">
     <Wrapped center>
       <Icon

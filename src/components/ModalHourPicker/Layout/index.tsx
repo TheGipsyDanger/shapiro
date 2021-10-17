@@ -7,12 +7,12 @@ import { ModalTitle } from '~/components/Base/Modal';
 
 import { IModalHourPickerLayout } from '@/ModalHourPicker';
 
-export const ModalHourPicker: React.FC<IModalHourPickerLayout> = ({
+export const ModalHourPicker = ({
   date,
   title,
   onChange,
   closeModal,
-}) => {
+}: IModalHourPickerLayout) => {
   return (
     <Wrapped>
       <Wrapped center>

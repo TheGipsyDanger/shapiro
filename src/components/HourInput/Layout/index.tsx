@@ -6,14 +6,14 @@ import { FormError } from '~/components/FormError';
 import { IHourInputLayout } from '@/HourInput';
 import C from './styles';
 
-export const HourInput: React.FC<IHourInputLayout> = ({
+export const HourInput = ({
   label,
   errors,
   touched,
   hasValue,
   inputValue,
   press,
-}) => {
+}: IHourInputLayout) => {
   const lowerLabel = label.toLowerCase();
 
   return (

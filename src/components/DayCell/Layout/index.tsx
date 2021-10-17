@@ -4,13 +4,13 @@ import { Wrapped, Text } from '~/components/Base';
 
 import { IDayCellLayout } from '@/DayCell';
 
-export const DayCell: React.FC<IDayCellLayout> = ({
+export const DayCell = ({
   day,
   size,
   press,
   events,
   defineText,
-}) => (
+}: IDayCellLayout) => (
   <Wrapped testID="DayCell" my={2} onPress={() => press(day)}>
     <Wrapped
       width={size}

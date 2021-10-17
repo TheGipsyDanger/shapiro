@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button } from 'react-native';
 import { useState, useEffect } from 'react';
 
-import { Page } from '~/components';
+import { Page, Gallery } from '~/components';
 import { useModal, useCreateEvent } from '~/hooks';
 
 import { ITestLayout } from '../data';
@@ -20,9 +20,5 @@ export const Test: React.FC<ITestLayout> = ({ data }) => {
     openModal('ModalHourPicker');
   }
 
-  return (
-    <Page>
-      <Button title={'Renan'} onPress={press}></Button>
-    </Page>
-  );
+  return <Gallery />;
 };

@@ -6,12 +6,12 @@ import { Text, Card, Wrapped } from '~/components/Base';
 import { Metrics } from '~/styles';
 import { IDayInputLayout } from '@/DayInput';
 
-export const DayInput: React.FC<IDayInputLayout> = ({
+export const DayInput = ({
   days,
   onChange,
   dayIndex,
   isSelected,
-}) => {
+}: IDayInputLayout) => {
   return (
     <>
       <Text>Select day</Text>

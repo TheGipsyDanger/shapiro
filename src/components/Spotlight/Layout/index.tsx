@@ -1,11 +1,14 @@
 import * as React from 'react';
 
 import { Text, Wrapped } from '~/components/Base';
-import { Header, ShowMore, Event } from './components';
+
+import { Event } from './Event';
+import { Header } from './Header';
+import { ShowMore } from './ShowMore';
 
 import { ISpotlightLayout } from '@/Spotlight';
 
-export const Spotlight: React.FC<ISpotlightLayout> = ({
+export const Spotlight = ({
   day,
   edit,
   events,
@@ -15,7 +18,7 @@ export const Spotlight: React.FC<ISpotlightLayout> = ({
   showMore,
   hasEvents,
   selectEvent,
-}) => (
+}: ISpotlightLayout) => (
   <Wrapped testID={`Spotlight`} mt={4}>
     <Header {...{ day, onPress }} />
     {hasEvents ? (

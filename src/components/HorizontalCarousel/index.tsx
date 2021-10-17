@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { FlatList } from 'react-native';
 import { useRef, useEffect } from 'react';
 
 import { useEvent } from '~/hooks';
@@ -6,8 +7,8 @@ import { useEvent } from '~/hooks';
 import { IHorizontalCarousel } from '@/HorizontalCarousel';
 import { HorizontalCarousel as Layout } from './Layout';
 
-export const HorizontalCarousel: React.FC<IHorizontalCarousel> = props => {
-  const flatlistRef = useRef(null);
+export const HorizontalCarousel = (props: IHorizontalCarousel) => {
+  const flatlistRef = useRef<FlatList>(null);
   const { imageIndex } = useEvent();
 
   useEffect(() => {
@@ -21,7 +22,6 @@ export const HorizontalCarousel: React.FC<IHorizontalCarousel> = props => {
   }
 
   function scrollList(index: number) {
-    //@ts-ignore
     flatlistRef?.current?.scrollToIndex({
       animated: true,
       index: index,

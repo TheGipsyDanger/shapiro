@@ -3,14 +3,14 @@ import * as React from 'react';
 import { Text, Wrapped } from '~/components/Base';
 
 import { ISpotlightEventLayout } from '@/Spotlight';
-import C from '../styles';
+import C from './styles';
 
-export const Event: React.FC<ISpotlightEventLayout> = ({
+export const Event = ({
   edit,
   event,
   remove,
   selectEvent,
-}) => (
+}: ISpotlightEventLayout) => (
   <Wrapped
     flexDirection="row"
     borderBottomColor={'black'}

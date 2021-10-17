@@ -8,7 +8,7 @@ import { useModal, useCreateEvent } from '~/hooks';
 import { IModalHourPicker } from '@/ModalHourPicker';
 import { ModalHourPicker as Layout } from './Layout';
 
-export const ModalHourPicker: React.FC<IModalHourPicker> = props => {
+export const ModalHourPicker = (props: IModalHourPicker) => {
   const { type, setHour: setDateHook } = useCreateEvent();
   const { closeModal } = useModal();
 

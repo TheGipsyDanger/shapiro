@@ -7,7 +7,7 @@ import { createEventFactory, createDaysFactory } from '~/utils';
 import { IModalQuestion } from '@/ModalQuestion';
 import { ModalQuestion as Layout } from './Layout';
 
-export const ModalQuestion: React.FC<IModalQuestion> = props => {
+export const ModalQuestion = (props: IModalQuestion) => {
   const { currentEvent, selectedDay, days, updateDays } = useEvent();
   const { closeModal, functions, defineFunctions } = useModal();
   const { showAlert } = useAlert();

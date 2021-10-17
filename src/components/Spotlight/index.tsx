@@ -7,7 +7,7 @@ import { createEventFactory, createDaysFactory, IEditEvent } from '~/utils';
 import { ISpotlight } from '@/Spotlight';
 import { Spotlight as Layout } from './Layout';
 
-export const Spotlight: React.FC<ISpotlight> = props => {
+export const Spotlight = (props: ISpotlight) => {
   const navigation = useNavigation();
 
   const { showAlert } = useAlert();

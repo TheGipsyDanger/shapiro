@@ -2,7 +2,7 @@ import { Dimensions } from 'react-native';
 import { getStatusBarHeight, isIphoneX } from 'react-native-iphone-x-helper';
 import normalize from '../utils/sizeHelper';
 
-const { height, width } = Dimensions.get('window');
+const { height, width } = Dimensions.get('screen');
 
 export default {
   height: height,

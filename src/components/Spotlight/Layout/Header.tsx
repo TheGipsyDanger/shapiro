@@ -4,7 +4,7 @@ import { Text, Wrapped, Icon } from '~/components/Base';
 
 import { ISpotlightHeaderLayout } from '@/Spotlight';
 
-export const Header: React.FC<ISpotlightHeaderLayout> = ({ day, onPress }) => (
+export const Header = ({ day, onPress }: ISpotlightHeaderLayout) => (
   <Wrapped flexDirection={'row'} justifyContent="space-between" mb={2}>
     <Wrapped>
       <Text size={7} font="black" color="clean">

@@ -6,10 +6,7 @@ import { ModalTitle, ModalDescription } from '~/components/Base/Modal';
 
 import { IModalQuestionLayout } from '@/ModalQuestion';
 
-export const ModalQuestion: React.FC<IModalQuestionLayout> = ({
-  cancel,
-  remove,
-}) => (
+export const ModalQuestion = ({ cancel, remove }: IModalQuestionLayout) => (
   <Wrapped testID={`ModalQuestion`}>
     <ModalTitle>{'Deletar esse item?'}</ModalTitle>
     <ModalDescription>

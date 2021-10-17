@@ -11,13 +11,13 @@ const Main = ({ lib, ...props }: IIconLayout) => {
   return <Icon {...props} />;
 };
 
-export const Icon: React.FC<IIconLayout> = ({
+export const Icon = ({
   lib = 'AntDesign',
   size = 20,
   color = 'black',
   name,
   ...props
-}) => (
+}: IIconLayout) => (
   <Wrapped {...props} testID={'Icon'}>
     <Main lib={lib} size={size} color={color} name={name} />
   </Wrapped>

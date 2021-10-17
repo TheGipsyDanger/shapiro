@@ -7,12 +7,12 @@ import { Metrics } from '~/styles';
 import { IHorizontalCarouselLayout } from '@/HorizontalCarousel';
 import C from './styles';
 
-export const HorizontalCarousel: React.FC<IHorizontalCarouselLayout> = ({
+export const HorizontalCarousel = ({
   images,
   imageIndex,
   changeIndex,
   flatlistRef,
-}) => {
+}: IHorizontalCarouselLayout) => {
   return (
     <Wrapped testID={`HorizontalCarousel`}>
       <FlatList
