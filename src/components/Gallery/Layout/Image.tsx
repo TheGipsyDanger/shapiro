@@ -8,9 +8,10 @@ import C from './styles';
 
 const { width, height } = Metrics;
 
-export const Image = ({ uri }: IImage) => (
+export const Image = ({ uri, changeInfoState }: IImage) => (
   <C.Container>
     <ImageZoom
+      onClick={changeInfoState}
       cropWidth={width}
       imageWidth={width}
       cropHeight={height}

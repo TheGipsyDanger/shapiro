@@ -1,5 +1,5 @@
 {
-  "inTest": false,
+  "inTest": true,
   "expo": {
     "name": "Shapiro",
     "slug": "Shapiro",

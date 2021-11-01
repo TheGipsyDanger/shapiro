@@ -54,11 +54,14 @@ export const colors: { [key: string]: string } = {
   placeholder: '#C7C7CD',
   transparent: 'transparent',
   primary: dayColors[moment().format('dddd').toLowerCase()],
+  indicatorActive: '#E6AF32',
+  indicatorNoActive: '#FEFEFE',
   ...dayColors,
 };
 
 export const radii: { [key: string]: number } = {
   square: 4,
+  slider: 25,
   medium: 8,
   round: 17,
   circle: 100,
@@ -74,12 +77,15 @@ export const shadows: { [key: string]: string } = {
   event: '0px 0px 4px  rgba(0, 0, 0, 0.12)',
 };
 
+export const breakpoints: number[] = [768, 834, 1024];
+
 export const theme = {
   radii,
   space,
   colors,
   shadows,
   fontSizes,
+  breakpoints: ['576px', '768px', '991px', '1220px'],
 };
 
 export const ThemeProvider: React.FC = ({ children }) => {

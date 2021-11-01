@@ -20,6 +20,8 @@ export const Gallery = (props: IGallery) => {
     }))
   );
 
+  const [showInfo, setShowInfo] = useState(true);
+
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   function isSelect(index: number): boolean {
@@ -52,12 +54,14 @@ export const Gallery = (props: IGallery) => {
   const layoutProps = {
     ...props,
     images,
+    showInfo,
     isSelect,
     thumbRef,
     galleryRef,
     activeIndex,
     changeThumbIndex,
     changeGalleryIndex,
+    changeInfoState: () => setShowInfo(old => !old),
   };
 
   return <Layout {...layoutProps} />;

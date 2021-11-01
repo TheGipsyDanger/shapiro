@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import { Wrapped, Text } from '~/components/Base';
 
 import { ITitle } from '@/EventCell';

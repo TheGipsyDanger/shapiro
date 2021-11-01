@@ -23,4 +23,6 @@ export { ModalQuestion } from './ModalQuestion';
 export { ModalController } from './ModalController';
 export { ModalHourPicker } from './ModalHourPicker';
 export { Gallery } from './Gallery';
+export { Conditional } from './Conditional';
+export { PromotionalSlider } from './PromotionalSlider';
 // Import component here
