@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-import { useEvent, useDate, useAlert } from '~/hooks';
+import { useEvent, useDate } from '~/hooks';
 import { createDaysFactory, IDayNames } from '~/utils';
 
 import { IHome } from '@/Home';

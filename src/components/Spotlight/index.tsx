@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useNavigation } from '@react-navigation/native';
+import Toast from 'react-native-toast-message';
 
-import { useEvent, useAlert, useCreateEvent } from '~/hooks';
+import { useEvent, useCreateEvent } from '~/hooks';
 import { createEventFactory, createDaysFactory, IEditEvent } from '~/utils';
 
 import { ISpotlight } from '@/Spotlight';
@@ -10,7 +11,6 @@ import { Spotlight as Layout } from './Layout';
 export const Spotlight = (props: ISpotlight) => {
   const navigation = useNavigation();
 
-  const { showAlert } = useAlert();
   const { setEventToEdit } = useCreateEvent();
   const {
     days,
@@ -55,10 +55,10 @@ export const Spotlight = (props: ISpotlight) => {
     const days = Days.updateDay(Event.deleteEvent(id));
     updateDays(days);
 
-    showAlert({
-      title: `${name} deleted`,
-      message: 'Successfully delete event.',
+    Toast.show({
       type: 'success',
+      text1: `${name} deleted`,
+      text2: 'Successfully delete event.',
     });
   }
 

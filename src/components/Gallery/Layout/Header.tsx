@@ -6,8 +6,8 @@ import { ModalHeader } from '~/components/ModalHeader';
 
 export const Header = () => (
   <Wrapped
-    position="absolute"
     zIndex={2}
+    position="absolute"
     top={initialWindowMetrics?.insets.top}
     left={0}
     right={0}>

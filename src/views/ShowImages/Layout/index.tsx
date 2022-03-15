@@ -5,9 +5,9 @@ import { Gallery } from '~/components';
 
 import { IShowImagesLayout } from '@/ShowImages';
 
-export const ShowImages = (props: IShowImagesLayout) => (
+export const ShowImages = ({ goBack }: IShowImagesLayout) => (
   <>
     <StatusBar style="light" />
-    <Gallery />
+    <Gallery {...{ goBack }} />
   </>
 );

@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import Toast from 'react-native-toast-message';
 import isEmpty from 'lodash/isEmpty';
 
-import { useEvent, useDate, useAlert, useCreateEvent, useModal } from '~/hooks';
+import { useEvent, useDate, useCreateEvent, useModal } from '~/hooks';
 import {
   IDayNames,
   useCreateForm,
@@ -16,6 +17,9 @@ import { CreateEvent as Layout } from './Layout';
 
 export const CreateEvent: React.FC<ICreateEvent> = props => {
   const navigation = useNavigation();
+  const { date } = useDate();
+  const { days, updateDays } = useEvent();
+  const { openModal } = useModal();
   const {
     hour,
     type,
@@ -23,10 +27,6 @@ export const CreateEvent: React.FC<ICreateEvent> = props => {
     eventToEdit,
     setHour: setHourHook,
   } = useCreateEvent();
-  const { days, updateDays } = useEvent();
-  const { date } = useDate();
-  const { showAlert } = useAlert();
-  const { openModal } = useModal();
 
   const [daySelected, setDaySelected] = useState(date.dayName.toLowerCase());
 
@@ -68,19 +68,19 @@ export const CreateEvent: React.FC<ICreateEvent> = props => {
           : Event.createEvent(values)
       );
       updateDays(days);
-      showAlert({
-        title: `${values.name} ${hasEvent ? `updated` : `created`} `,
-        message: `Successfully ${hasEvent ? `updated` : `created`} event.`,
-        type: 'success',
-      });
       setType('start');
       setHourHook('');
       navigation.goBack();
+      Toast.show({
+        type: 'success',
+        text1: `${values.name} ${hasEvent ? `updated` : `created`}`,
+        text2: `Successfully ${hasEvent ? `updated` : `created`} event.`,
+      });
     } else {
-      showAlert({
-        title: `Ops...`,
-        message: errors[0],
+      Toast.show({
         type: 'error',
+        text1: `Ops...`,
+        text2: errors[0],
       });
     }
   }

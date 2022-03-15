@@ -9,6 +9,7 @@ import { IGallery } from './data';
 import { Gallery as Layout } from './Layout';
 
 export const Gallery = (props: IGallery) => {
+  const { goBack } = props;
   const galleryRef = useRef<FlatList>();
   const thumbRef = useRef<FlatList>();
 
@@ -20,7 +21,7 @@ export const Gallery = (props: IGallery) => {
     }))
   );
 
-  const [showInfo, setShowInfo] = useState(true);
+  const [showInfo, setShowInfo] = useState<boolean>(true);
 
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
@@ -43,12 +44,36 @@ export const Gallery = (props: IGallery) => {
     const index = Math.floor(
       event?.nativeEvent?.contentOffset?.x / Metrics.width
     );
+
     changeThumbIndex(index);
   }
 
   function changeThumbIndex(index: number): void {
     setActiveIndex(index);
     scrollLists(index);
+  }
+
+  function cleanAndBackFlow() {
+    // deletar Images da factory
+    goBack();
+    setImages([]);
+    setActiveIndex(0);
+  }
+
+  function updateImages() {
+    const newImages = images.filter((_, index) => index !== activeIndex);
+
+    if (newImages.length === 1 || activeIndex === 0) {
+      setActiveIndex(0);
+    } else {
+      setActiveIndex(activeIndex - 1);
+    }
+
+    setImages(newImages);
+  }
+
+  function deleteImage() {
+    images.length >= 1 ? cleanAndBackFlow() : updateImages();
   }
 
   const layoutProps = {
@@ -59,6 +84,7 @@ export const Gallery = (props: IGallery) => {
     thumbRef,
     galleryRef,
     activeIndex,
+    deleteImage,
     changeThumbIndex,
     changeGalleryIndex,
     changeInfoState: () => setShowInfo(old => !old),

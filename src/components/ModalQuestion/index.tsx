@@ -1,7 +1,9 @@
 import * as React from 'react';
+import Toast from 'react-native-toast-message';
+
 import { Modal } from '~/components/Base';
 
-import { useEvent, useModal, useAlert } from '~/hooks';
+import { useEvent, useModal } from '~/hooks';
 import { createEventFactory, createDaysFactory } from '~/utils';
 
 import { IModalQuestion } from '@/ModalQuestion';
@@ -10,7 +12,6 @@ import { ModalQuestion as Layout } from './Layout';
 export const ModalQuestion = (props: IModalQuestion) => {
   const { currentEvent, selectedDay, days, updateDays } = useEvent();
   const { closeModal, functions, defineFunctions } = useModal();
-  const { showAlert } = useAlert();
 
   const Event = createEventFactory(selectedDay);
   const Days = createDaysFactory(days);
@@ -26,10 +27,10 @@ export const ModalQuestion = (props: IModalQuestion) => {
 
     closeModal();
 
-    showAlert({
-      title: `${name} deleted`,
-      message: 'Successfully delete event.',
+    Toast.show({
       type: 'success',
+      text1: `${name} deleted`,
+      text2: 'Successfully delete event.',
     });
   }
 

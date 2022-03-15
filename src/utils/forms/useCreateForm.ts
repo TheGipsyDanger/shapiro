@@ -13,12 +13,12 @@ export const useCreateForm = (onSubmit: any, event: any) => {
       final: event?.final ? event.final : '',
     },
     validationSchema: yup.object().shape({
-      name: yup.string().required('Este campo é obrigatório'),
-      day: yup.string().required('Este campo é obrigatório'),
+      name: yup.string().required('Field is required'),
+      day: yup.string().required('Field is required'),
       start: yup
         .string()
-        .required('Este campo é obrigatório')
-        .test('validate-hour', 'Entre um horário válido', final => {
+        .required('Field is required')
+        .test('validate-hour', 'Please enter a valid time', final => {
           if (final === undefined) return true;
           const justNumbers = final.replace(':', '');
           if (justNumbers?.length != 4) return false;
@@ -29,7 +29,7 @@ export const useCreateForm = (onSubmit: any, event: any) => {
         })
         .test(
           'pw-match',
-          'Inicio tem que ser menor que o final',
+          'Start must be earlier than the end',
           function (value) {
             if (
               value &&
@@ -48,8 +48,8 @@ export const useCreateForm = (onSubmit: any, event: any) => {
         ),
       final: yup
         .string()
-        .required('Este campo é obrigatório')
-        .test('validate-hour', 'Entre um horário válido', final => {
+        .required('Field is required')
+        .test('validate-hour', 'Please enter a valid time', final => {
           if (final === undefined) return true;
           const justNumbers = final.replace(':', '');
           if (justNumbers?.length != 4) return false;
@@ -58,25 +58,21 @@ export const useCreateForm = (onSubmit: any, event: any) => {
             parseInt(justNumbers.substr(2, 2)) < 60
           );
         })
-        .test(
-          'pw-match',
-          'Final tem que ser maior que o inicio',
-          function (value) {
-            if (
-              value &&
-              this.parent.start &&
-              value.length === 5 &&
-              this.parent.start.length === 5
-            ) {
-              const startValue = Number(this.parent.start.replace(':', ''));
-              const finalValue = Number(value.replace(':', ''));
+        .test('pw-match', 'End has to be later than start', function (value) {
+          if (
+            value &&
+            this.parent.start &&
+            value.length === 5 &&
+            this.parent.start.length === 5
+          ) {
+            const startValue = Number(this.parent.start.replace(':', ''));
+            const finalValue = Number(value.replace(':', ''));
 
-              return finalValue > startValue;
-            } else {
-              return true;
-            }
+            return finalValue > startValue;
+          } else {
+            return true;
           }
-        ),
+        }),
     }),
     onSubmit,
   });

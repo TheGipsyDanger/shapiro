@@ -4,10 +4,12 @@ import { useState } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import AppLoading from 'expo-app-loading';
+import Toast from 'react-native-toast-message';
 
-import { Toast, GlobalProvider, ModalController } from './src/components';
+import { GlobalProvider, ModalController } from './src/components';
 
 import { useStorage } from './src/hooks';
+import { toastConfig } from './src/configs/toast';
 import Routes from './src/routes/Routes';
 
 const App: React.FC = () => {
@@ -57,8 +59,8 @@ const App: React.FC = () => {
       <NavigationContainer>
         <GlobalProvider>
           <Routes goToIntro={goToIntro} />
-          <Toast />
           <ModalController />
+          <Toast config={toastConfig} />
         </GlobalProvider>
       </NavigationContainer>
     </SafeAreaProvider>

@@ -15,14 +15,17 @@ export const Gallery = ({
   thumbRef,
   showInfo,
   galleryRef,
+  deleteImage,
   changeInfoState,
   changeGalleryIndex,
   ...props
 }: IGalleryLayout) => (
   <Wrapped bg="total_black" testID={`Gallery`}>
     <Conditional render={showInfo}>
-      <Header />
-      <ImageOption />
+      <>
+        <Header />
+        <ImageOption onPress={deleteImage} />
+      </>
     </Conditional>
     <FlatList
       ref={galleryRef}

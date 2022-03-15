@@ -4,8 +4,9 @@ import { Camera } from 'expo-camera';
 import { Linking } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import * as MediaLibrary from 'expo-media-library';
+import Toast from 'react-native-toast-message';
 
-import { useEvent, useDate, useAlert } from '~/hooks';
+import { useEvent, useDate } from '~/hooks';
 import {
   IEvent,
   IDayNames,
@@ -19,7 +20,6 @@ import { ShapiroCamera as Layout } from './Layout';
 export const ShapiroCamera: React.FC<IShapiroCamera> = props => {
   const { days, updateDays } = useEvent();
   const { date } = useDate();
-  const { showAlert } = useAlert();
 
   const navigation = useNavigation();
 
@@ -84,10 +84,10 @@ export const ShapiroCamera: React.FC<IShapiroCamera> = props => {
 
   async function takePicture() {
     if (!success) {
-      return showAlert({
-        title: 'Photo cannot be saved.',
-        message: 'No events at this time.',
+      return Toast.show({
         type: 'error',
+        text1: `Photo cannot be saved.`,
+        text2: 'No events at this time.',
       });
     }
     if (cameraRef) {

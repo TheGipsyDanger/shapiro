@@ -1,3 +1,5 @@
 export interface IShowImages {}
 
-export interface IShowImagesLayout extends IShowImages {}
+export interface IShowImagesLayout extends IShowImages {
+  goBack(): void;
+}

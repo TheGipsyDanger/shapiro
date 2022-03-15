@@ -16,7 +16,6 @@ export { DayInput } from './DayInput';
 export { FormError } from './FormError';
 export { HorizontalCarousel } from './HorizontalCarousel';
 export { CameraButtons } from './CameraButtons';
-export { Toast } from './Toast';
 export { CameraEvent } from './CameraEvent';
 export { ActionButton } from './ActionButton';
 export { ModalQuestion } from './ModalQuestion';
