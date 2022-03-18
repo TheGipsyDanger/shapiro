@@ -4,22 +4,53 @@ import { FlatList } from 'react-native';
 
 import { useEvent } from '~/hooks';
 import { Metrics } from '~/styles';
+import { navigate, createEventFactory, IDay } from '~/utils';
 
 import { IGallery } from './data';
 import { Gallery as Layout } from './Layout';
 
 export const Gallery = (props: IGallery) => {
-  const { goBack } = props;
   const galleryRef = useRef<FlatList>();
   const thumbRef = useRef<FlatList>();
 
-  const { currentEvent } = useEvent();
+  const {
+    days,
+    updateDays,
+    selectedDay,
+    currentEvent,
+    setCurrentEvent,
+  } = useEvent();
+
+  const Event = createEventFactory(selectedDay);
+
+  const { day, events } = Event.formattingTheEvent();
 
   const [images, setImages] = useState(
     currentEvent.images.map(img => ({
       uri: img,
     }))
   );
+
+  function updateEventImages(images: any[]) {
+    return {
+      [day.toLowerCase()]: {
+        events: events.map(item => {
+          if (currentEvent.id === item.id) {
+            const newItem = {
+              ...item,
+              images: images.map(item => item.uri),
+            };
+            setCurrentEvent(newItem);
+            return newItem;
+          } else {
+            return {
+              ...item,
+            };
+          }
+        }),
+      },
+    };
+  }
 
   const [showInfo, setShowInfo] = useState<boolean>(true);
 
@@ -41,11 +72,9 @@ export const Gallery = (props: IGallery) => {
   }
 
   function changeGalleryIndex(event: any): void {
-    const index = Math.floor(
-      event?.nativeEvent?.contentOffset?.x / Metrics.width
+    changeThumbIndex(
+      Math.floor(event?.nativeEvent?.contentOffset?.x / Metrics.width)
     );
-
-    changeThumbIndex(index);
   }
 
   function changeThumbIndex(index: number): void {
@@ -54,26 +83,29 @@ export const Gallery = (props: IGallery) => {
   }
 
   function cleanAndBackFlow() {
-    // deletar Images da factory
-    goBack();
-    setImages([]);
+    navigate('EventsOfDay', {});
+    setImages(() => []);
+    defineDays(updateEventImages([]));
     setActiveIndex(0);
   }
 
   function updateImages() {
     const newImages = images.filter((_, index) => index !== activeIndex);
+    const checkIsLast = newImages.length === 1 || activeIndex === 0;
+    setActiveIndex(old => (checkIsLast ? 0 : old - 1));
+    setImages(() => newImages);
+    defineDays(updateEventImages(newImages));
+  }
 
-    if (newImages.length === 1 || activeIndex === 0) {
-      setActiveIndex(0);
-    } else {
-      setActiveIndex(activeIndex - 1);
-    }
-
-    setImages(newImages);
+  function defineDays(day: IDay) {
+    updateDays({
+      ...days,
+      ...day,
+    });
   }
 
   function deleteImage() {
-    images.length >= 1 ? cleanAndBackFlow() : updateImages();
+    images.length === 1 ? cleanAndBackFlow() : updateImages();
   }
 
   const layoutProps = {

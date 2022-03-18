@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { FlatList } from 'react-native';
+import { initialWindowMetrics } from 'react-native-safe-area-context';
 
 import { Conditional } from '~/components/Conditional';
 import { Wrapped } from '~/components/Base';
-import { Header } from './Header';
+import { ModalHeader } from '~/components/ModalHeader';
 import { ImageOption } from './ImageOption';
 import { Image } from './Image';
 import { Thumb } from './Thumb';
@@ -21,12 +22,6 @@ export const Gallery = ({
   ...props
 }: IGalleryLayout) => (
   <Wrapped bg="total_black" testID={`Gallery`}>
-    <Conditional render={showInfo}>
-      <>
-        <Header />
-        <ImageOption onPress={deleteImage} />
-      </>
-    </Conditional>
     <FlatList
       ref={galleryRef}
       data={images}
@@ -49,6 +44,19 @@ export const Gallery = ({
           <Thumb {...{ ...props, uri: item.uri, index }} />
         )}
       />
+    </Conditional>
+    <Conditional render={showInfo}>
+      <Wrapped
+        zIndex={10}
+        position="absolute"
+        top={initialWindowMetrics?.insets.top}
+        left={0}
+        right={0}>
+        <Wrapped>
+          <ModalHeader title="" color="white" />
+          <ImageOption onPress={deleteImage} />
+        </Wrapped>
+      </Wrapped>
     </Conditional>
   </Wrapped>
 );

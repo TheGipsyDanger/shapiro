@@ -13,11 +13,11 @@ export const Event = ({
 }: ISpotlightEventLayout) => (
   <Wrapped
     flexDirection="row"
-    borderBottomColor={'black'}
-    borderBottomWidth={1 / 3}>
+    borderBottomColor={'clean'}
+    borderBottomWidth={1 / 3}
+    minHeight={92}>
     <Wrapped
       flex={1}
-      py={3}
       flexDirection="row"
       alignItems="center"
       justifyContent="space-between"
@@ -34,7 +34,7 @@ export const Event = ({
         </Text>
       </Wrapped>
     </Wrapped>
-    <C.Press mx={2} onPress={() => edit(event.id)}>
+    <C.Press onPress={() => edit(event.id)}>
       <C.Icon name="edit" />
     </C.Press>
     <C.Press onPress={() => remove(event.id)}>

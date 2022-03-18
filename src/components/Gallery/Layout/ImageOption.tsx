@@ -8,7 +8,7 @@ import { IImageOption } from '~/components/Gallery/data';
 export const ImageOption = ({ onPress }: IImageOption) => {
   const topDistance =
     initialWindowMetrics?.insets?.top !== undefined
-      ? initialWindowMetrics?.insets?.top + 44
+      ? initialWindowMetrics?.insets?.top
       : 0;
   return (
     <Wrapped
@@ -19,9 +19,14 @@ export const ImageOption = ({ onPress }: IImageOption) => {
       right={0}>
       <Wrapped flex={1} flexDirection="row" justifyContent="flex-end">
         <Wrapped width="50%" flexDirection="row" justifyContent="flex-end">
-          <Wrapped width={42} height={42} bg="red" borderRadius="circle">
+          <Wrapped
+            boxShadow="card"
+            width={42}
+            height={42}
+            mr={2}
+            borderRadius="circle">
             <Wrapped {...{ onPress }} flex={1} center>
-              <Icon name={'delete'} color="white" size={18} />
+              <Icon name={'delete'} color="white" size={32} />
             </Wrapped>
           </Wrapped>
         </Wrapped>

@@ -4,14 +4,10 @@ import { Wrapped, Icon } from '~/components/Base';
 
 import { IActionButtonLayout } from '@/ActionButton';
 
-export const ActionButton = ({
-  icon,
-  onPress,
-  type = 'default',
-}: IActionButtonLayout) => (
+export const ActionButton = ({ icon, onPress }: IActionButtonLayout) => (
   <Wrapped
     testID={`ActionButton`}
-    bg={type == 'default' ? 'green' : 'red'}
+    bg={'black'}
     position="absolute"
     shadow="iconVery"
     borderRadius="circle"

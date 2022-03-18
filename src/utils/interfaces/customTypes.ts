@@ -9,3 +9,10 @@ export interface ISliderImage {
   id: string;
   uri: string;
 }
+
+export interface IButtonOptions {
+  color: string;
+  bg: string;
+}
+
+export type IButtonTypes = { [key: string]: IButtonOptions };

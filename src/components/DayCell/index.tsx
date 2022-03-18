@@ -2,13 +2,20 @@ import * as React from 'react';
 
 import { Metrics } from '~/styles';
 
+import { useDate } from '~/hooks';
+
 import { IDayCell } from '@/DayCell';
 import { DayCell as Layout } from './Layout';
 
 const { width } = Metrics;
 
 export const DayCell = (props: IDayCell) => {
-  const size = width / 4;
+  const { day } = props;
+  const size = width / 7;
+
+  const {
+    date: { dayName },
+  } = useDate();
 
   function defineText(day: string): string {
     const subDay = day.substring(0, 3);
@@ -19,6 +26,7 @@ export const DayCell = (props: IDayCell) => {
     ...props,
     size,
     defineText,
+    isToday: defineText(day) === defineText(dayName),
   };
 
   return <Layout {...layoutProps} />;

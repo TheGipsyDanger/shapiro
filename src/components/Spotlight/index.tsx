@@ -72,7 +72,7 @@ export const Spotlight = (props: ISpotlight) => {
     onPress: createEvent,
     hasEvents: !!events.length,
     showMore: events.length > 3,
-    events: Event.sortEvents(events).slice(0, 3),
+    events: Event.sortEvents(events),
   };
 
   return <Layout {...layoutProps} />;

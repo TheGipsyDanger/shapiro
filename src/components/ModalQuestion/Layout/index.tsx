@@ -17,7 +17,7 @@ export const ModalQuestion = ({ cancel, remove }: IModalQuestionLayout) => (
     <Wrapped flexDirection="row">
       <Wrapped flex={1} />
       <Wrapped flex={1}>
-        <Button title="Cancelar" onPress={cancel} />
+        <Button title="Cancelar" onPress={cancel} type="clean" />
       </Wrapped>
       <Wrapped mx={1} />
       <Wrapped flex={1}>

@@ -10,7 +10,8 @@ export const Header = () => (
     position="absolute"
     top={initialWindowMetrics?.insets.top}
     left={0}
-    right={0}>
-    <ModalHeader title="  " color="white" />
+    right={0}
+    boxShadow="card">
+    <ModalHeader title="" color="white" />
   </Wrapped>
 );

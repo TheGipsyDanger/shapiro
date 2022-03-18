@@ -1,6 +1,7 @@
 export interface IModalHeader {
   data?: any;
   title: string;
+  showIcon?: boolean;
   color?: 'black' | 'white';
 }
 

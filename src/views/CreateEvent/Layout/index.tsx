@@ -31,12 +31,11 @@ export const CreateEvent: React.FC<ICreateEventLayout> = ({
     <Wrapped flex={1} bg="white">
       <Page>
         <StatusBar style="dark" />
-        <ModalHeader {...{ title }} />
+        <ModalHeader {...{ title }} showIcon={false} />
         <Scroll mx={2}>
           <Separator>
             <EventNameInput {...{ errors, values, touched, onChange }} />
           </Separator>
-
           <Separator flexDirection="row" justifyContent="space-between">
             <HourInput
               placeholder="09:00"

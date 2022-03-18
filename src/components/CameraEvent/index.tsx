@@ -9,7 +9,7 @@ export const CameraEvent = (props: ICameraEvent) => {
 
   const layoutProps = {
     ...props,
-    goToCreateEvent: () => navigation.navigate('CreateEvent'),
+    goToCreateEvent: () => navigation.navigate('AddEvent'),
   };
 
   return <Layout {...layoutProps} />;

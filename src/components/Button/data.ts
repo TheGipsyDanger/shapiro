@@ -25,6 +25,7 @@ export interface IButton
   shadow?: string;
   testID?: string;
   center?: boolean;
+  type?: 'clean' | 'default';
   onPress?(): void;
 }
 

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { Page, Scroll, Wrapped, EventCell, ModalHeader } from '~/components';
+import { Scroll, Wrapped, EventCell, ModalHeader } from '~/components';
 
 import { IEventsOfDayLayout } from '@/EventsOfDay';
 
@@ -11,22 +12,21 @@ export const EventsOfDay: React.FC<IEventsOfDayLayout> = ({
   selectEvent,
 }) => (
   <Wrapped flex={1} bg={'white'}>
-    <Page testID="EventsOfDay">
-      <StatusBar style="dark" />
-      <ModalHeader title={headerTitle} />
-      <Scroll testID="EventsList">
-        <Wrapped>
-          {events.map((event, index) => (
-            <EventCell
-              key={index}
-              name={event.name}
-              images={event.images}
-              hour={`${event.initial} - ${event.final}`}
-              onPress={() => selectEvent(event.id)}
-            />
-          ))}
-        </Wrapped>
-      </Scroll>
-    </Page>
+    <StatusBar style="dark" />
+    <Wrapped height={useSafeAreaInsets().top} />
+    <ModalHeader title={headerTitle} />
+    <Scroll testID="EventsList">
+      <Wrapped>
+        {events.map((event, index) => (
+          <EventCell
+            key={index}
+            name={event.name}
+            images={event.images}
+            hour={`${event.initial} - ${event.final}`}
+            onPress={() => selectEvent(event.id)}
+          />
+        ))}
+      </Wrapped>
+    </Scroll>
   </Wrapped>
 );

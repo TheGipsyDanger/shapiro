@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { useState, useEffect, useCallback } from 'react';
-import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import { useState, useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
 import isEmpty from 'lodash/isEmpty';
 
@@ -10,6 +10,7 @@ import {
   useCreateForm,
   createDaysFactory,
   createEventFactory,
+  IEditEvent,
 } from '~/utils';
 
 import { ICreateEvent } from '@/CreateEvent';
@@ -25,6 +26,7 @@ export const CreateEvent: React.FC<ICreateEvent> = props => {
     type,
     setType,
     eventToEdit,
+    setEventToEdit,
     setHour: setHourHook,
   } = useCreateEvent();
 
@@ -36,15 +38,15 @@ export const CreateEvent: React.FC<ICreateEvent> = props => {
     hour !== '' && setHour(type, hour);
   }, [hour]);
 
-  useFocusEffect(
-    useCallback(() => {
-      if (isEmpty(eventToEdit)) {
-        form.resetForm();
-      } else {
-        form.setTouched({ name: true });
-      }
-    }, [])
-  );
+  useEffect(() => {
+    if (!isEmpty(eventToEdit)) {
+      form.setTouched({ name: true });
+    }
+    return () => {
+      form.resetForm();
+      setEventToEdit({} as IEditEvent);
+    };
+  }, []);
 
   const form = useCreateForm(onSubmit, eventToEdit);
 

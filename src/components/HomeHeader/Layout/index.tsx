@@ -1,12 +1,15 @@
 import * as React from 'react';
 
-import { Wrapped } from '~/components/Base';
-import { Date } from './Date';
+import { Wrapped, Text } from '~/components/Base';
 
 import { IHomeHeaderLayout } from '@/HomeHeader';
 
-export const HomeHeader = ({ date }: IHomeHeaderLayout) => (
-  <Wrapped testID={`HomeHeader`}>
-    <Date {...date} />
+export const HomeHeader = ({
+  date: { day, dayName, month, year },
+}: IHomeHeaderLayout) => (
+  <Wrapped testID={`HomeHeader`} center>
+    <Text font="black" color="clean" textTransform="uppercase">
+      {`${day} ${month} ${dayName} ${year}`}
+    </Text>
   </Wrapped>
 );

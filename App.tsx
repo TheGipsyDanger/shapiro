@@ -1,8 +1,10 @@
+// @ts-nocheck
 import * as React from 'react';
 import * as Font from 'expo-font';
 import { useState } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
+import { navigationRef } from '~/utils/functions/navigator';
 import AppLoading from 'expo-app-loading';
 import Toast from 'react-native-toast-message';
 
@@ -10,7 +12,7 @@ import { GlobalProvider, ModalController } from './src/components';
 
 import { useStorage } from './src/hooks';
 import { toastConfig } from './src/configs/toast';
-import Routes from './src/routes/Routes';
+import { Routes } from './src/routes/Routes';
 
 const App: React.FC = () => {
   const { getStorage } = useStorage();
@@ -56,7 +58,7 @@ const App: React.FC = () => {
 
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
+      <NavigationContainer ref={navigationRef}>
         <GlobalProvider>
           <Routes goToIntro={goToIntro} />
           <ModalController />
