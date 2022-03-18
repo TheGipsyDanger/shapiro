@@ -15,6 +15,7 @@ export const Gallery = (props: IGallery) => {
 
   const {
     days,
+    imageIndex,
     updateDays,
     selectedDay,
     currentEvent,
@@ -54,7 +55,7 @@ export const Gallery = (props: IGallery) => {
 
   const [showInfo, setShowInfo] = useState<boolean>(true);
 
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [activeIndex, setActiveIndex] = useState<number>(imageIndex);
 
   function isSelect(index: number): boolean {
     return index === activeIndex;

@@ -9,12 +9,15 @@ import { ImageOption } from './ImageOption';
 import { Image } from './Image';
 import { Thumb } from './Thumb';
 
+import { Metrics } from '~/styles';
+
 import { IGalleryLayout } from '../data';
 
 export const Gallery = ({
   images,
   thumbRef,
   showInfo,
+  activeIndex,
   galleryRef,
   deleteImage,
   changeInfoState,
@@ -23,10 +26,17 @@ export const Gallery = ({
 }: IGalleryLayout) => (
   <Wrapped bg="total_black" testID={`Gallery`}>
     <FlatList
-      ref={galleryRef}
-      data={images}
       horizontal
+      data={images}
+      ref={galleryRef}
+      extraData={images}
       pagingEnabled
+      getItemLayout={(_, index) => ({
+        length: Metrics.width,
+        offset: Metrics.width * index,
+        index,
+      })}
+      initialScrollIndex={activeIndex}
       onMomentumScrollEnd={event => changeGalleryIndex(event)}
       keyExtractor={(_, index) => index.toString()}
       renderItem={({ item }) => (
