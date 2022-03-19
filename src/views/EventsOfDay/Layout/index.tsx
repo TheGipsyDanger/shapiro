@@ -6,27 +6,29 @@ import { Scroll, Wrapped, EventCell, ModalHeader } from '~/components';
 
 import { IEventsOfDayLayout } from '@/EventsOfDay';
 
-export const EventsOfDay: React.FC<IEventsOfDayLayout> = ({
+export const EventsOfDay = ({
   events,
   headerTitle,
   selectEvent,
-}) => (
-  <Wrapped flex={1} bg={'white'}>
-    <StatusBar style="dark" />
-    <Wrapped height={useSafeAreaInsets().top} />
-    <ModalHeader title={headerTitle} />
-    <Scroll testID="EventsList">
-      <Wrapped>
-        {events.map((event, index) => (
-          <EventCell
-            key={index}
-            name={event.name}
-            images={event.images}
-            hour={`${event.initial} - ${event.final}`}
-            onPress={() => selectEvent(event.id)}
-          />
-        ))}
-      </Wrapped>
-    </Scroll>
-  </Wrapped>
-);
+}: IEventsOfDayLayout) => {
+  return (
+    <Wrapped flex={1} bg={'white'}>
+      <StatusBar style="dark" />
+      <Wrapped height={useSafeAreaInsets().top} />
+      <ModalHeader title={headerTitle} />
+      <Scroll testID="EventsList">
+        <Wrapped>
+          {events.map((event, index) => (
+            <EventCell
+              key={index}
+              name={event.name}
+              images={event.images}
+              hour={`${event.initial} - ${event.final}`}
+              onPress={() => selectEvent(event.id)}
+            />
+          ))}
+        </Wrapped>
+      </Scroll>
+    </Wrapped>
+  );
+};

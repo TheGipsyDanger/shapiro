@@ -7,7 +7,7 @@ import { createEventFactory } from '~/utils';
 import { IEventsOfDay } from '@/EventsOfDay';
 import { EventsOfDay as Layout } from './Layout';
 
-export const EventsOfDay: React.FC<IEventsOfDay> = props => {
+export const EventsOfDay = (props: IEventsOfDay) => {
   const navigation = useNavigation();
 
   const { selectedDay, setCurrentEvent } = useEvent();

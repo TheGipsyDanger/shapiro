@@ -13,7 +13,6 @@ import {
 } from '~/components';
 
 import { IHomeLayout, IHomeList, IHomeListItem } from '../data';
-import { t } from 'i18next';
 
 const List = ({ days, selectDay }: IHomeList) => (
   <Wrapped pt={4} pb={2}>
@@ -38,24 +37,26 @@ const List = ({ days, selectDay }: IHomeList) => (
   </Wrapped>
 );
 
-export const Home: React.FC<IHomeLayout> = ({
+export const Home = ({
   goToCamera,
   goToCreateEvent,
   ...props
-}) => (
-  <Wrapped testID="Home" flex={1} bg="white">
-    <StatusBar style="dark" />
-    <Wrapped height={useSafeAreaInsets().top} />
-    <Wrapped pt={4} pb={2}>
-      <HomeHeader />
-    </Wrapped>
-    <Scroll bg="transparent" flex={1}>
-      <List {...props} />
-      <Wrapped px={3}>
-        <Spotlight onPress={goToCreateEvent} />
-        <Wrapped height={80} />
+}: IHomeLayout) => {
+  return (
+    <Wrapped testID="Home" flex={1} bg="white">
+      <StatusBar style="dark" />
+      <Wrapped height={useSafeAreaInsets().top} />
+      <Wrapped pt={4} pb={2}>
+        <HomeHeader />
       </Wrapped>
-    </Scroll>
-    <ActionButton onPress={goToCamera} icon="camera" />
-  </Wrapped>
-);
+      <Scroll bg="transparent" flex={1}>
+        <List {...props} />
+        <Wrapped px={3}>
+          <Spotlight onPress={goToCreateEvent} />
+          <Wrapped height={80} />
+        </Wrapped>
+      </Scroll>
+      <ActionButton onPress={goToCamera} icon="camera" />
+    </Wrapped>
+  );
+};

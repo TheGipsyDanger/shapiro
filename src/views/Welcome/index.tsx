@@ -6,11 +6,11 @@ import { useStorage } from '~/hooks';
 import { IWelcome } from '@/Welcome';
 import { Welcome as Layout } from './Layout';
 
-export const Welcome: React.FC<IWelcome> = props => {
+const assetsURL = '../../assets';
+
+export const Welcome = (props: IWelcome) => {
   const { setStorage } = useStorage();
   const { navigate } = useNavigation();
-
-  const assetsURL = '../../assets';
 
   async function onTutorialDone() {
     try {

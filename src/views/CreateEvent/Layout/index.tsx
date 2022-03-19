@@ -20,13 +20,13 @@ const Separator = ({ children, ...props }: any) => (
   </Wrapped>
 );
 
-export const CreateEvent: React.FC<ICreateEventLayout> = ({
+export const CreateEvent = ({
   form: { errors, values, touched, submitForm, isValid },
   title,
   onChange,
   openHourPicker,
   ...props
-}) => {
+}: ICreateEventLayout) => {
   return (
     <Wrapped flex={1} bg="white">
       <Page>

@@ -16,7 +16,7 @@ import {
 import { ICreateEvent } from '@/CreateEvent';
 import { CreateEvent as Layout } from './Layout';
 
-export const CreateEvent: React.FC<ICreateEvent> = props => {
+export const CreateEvent = (props: ICreateEvent) => {
   const navigation = useNavigation();
   const { date } = useDate();
   const { days, updateDays } = useEvent();

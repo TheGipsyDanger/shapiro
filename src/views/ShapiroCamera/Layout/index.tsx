@@ -51,7 +51,7 @@ const Loading = () => (
   </Linear>
 );
 
-export const ShapiroCamera: React.FC<IShapiroCameraLayout> = props => {
+export const ShapiroCamera = (props: IShapiroCameraLayout) => {
   const {
     type,
     event,

@@ -6,7 +6,7 @@ import { createDaysFactory, IDayNames, navigate } from '~/utils';
 import { IHome } from '@/Home';
 import { Home as Layout } from './Layout';
 
-export const Home: React.FC<IHome> = props => {
+export const Home = (props: IHome) => {
   const { days, setSelectedDay } = useEvent();
 
   var {

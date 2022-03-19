@@ -32,7 +32,7 @@ const Item = ({ image, title, text }: ISlide) => (
   </Wrapped>
 );
 
-export const Welcome: React.FC<IWelcomeLayout> = ({ data, onTutorialDone }) => {
+export const Welcome = ({ data, onTutorialDone }: IWelcomeLayout) => {
   const renderPagination = (activeIndex: number) => {
     return (
       <Wrapped position="absolute" bottom={0} left={0} right={0}>

@@ -17,7 +17,7 @@ import {
 import { IShapiroCamera, IPermission, IPermissionCheck } from '@/ShapiroCamera';
 import { ShapiroCamera as Layout } from './Layout';
 
-export const ShapiroCamera: React.FC<IShapiroCamera> = props => {
+export const ShapiroCamera = (props: IShapiroCamera) => {
   const { days, updateDays } = useEvent();
   const { date } = useDate();
 
