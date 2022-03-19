@@ -13,6 +13,7 @@ import {
 } from '~/components';
 
 import { IHomeLayout, IHomeList, IHomeListItem } from '../data';
+import { t } from 'i18next';
 
 const List = ({ days, selectDay }: IHomeList) => (
   <Wrapped pt={4} pb={2}>

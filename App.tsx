@@ -14,6 +14,8 @@ import { useStorage } from './src/hooks';
 import { toastConfig } from './src/configs/toast';
 import { Routes } from './src/routes/Routes';
 
+import './i18n';
+
 const App: React.FC = () => {
   const { getStorage } = useStorage();
   const [isLoadingComplete, setLoadingComplete] = useState(false);
