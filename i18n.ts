@@ -3,20 +3,22 @@ import { initReactI18next } from 'react-i18next';
 
 i18n.use(initReactI18next).init(
   {
-    lng: 'pt-BR',
+    lng: 'en',
     fallbackLng: 'en',
     resources: {
       en: {
         translation: {
-          HOME: {
-            TITLE: 'REN',
+          EVENTS_OF_DAY: {
+            HEADER_V1: 'Events of',
+            HEADER_V2: 'has no events',
           },
         },
       },
       'pt-BR': {
         translation: {
-          HOME: {
-            TITLE: 'RENAN',
+          EVENTS_OF_DAY: {
+            HEADER_V1: 'Eventos do {}',
+            HEADER_V2: 'não tem eventos',
           },
         },
       },
