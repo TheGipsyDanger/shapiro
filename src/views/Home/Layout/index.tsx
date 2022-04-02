@@ -12,13 +12,25 @@ import {
   ActionButton,
 } from '~/components';
 
+import { useDate } from '~/utils';
+
+import { Metrics } from '~/styles';
+
 import { IHomeLayout, IHomeList, IHomeListItem } from '../data';
 
-const List = ({ days, selectDay }: IHomeList) => (
+const { width } = Metrics;
+
+const List = ({ days, selectDay, dayName }: IHomeList) => (
   <Wrapped pt={4} pb={2}>
     <FlatList
       testID="HomeList"
       data={days}
+      initialScrollIndex={useDate().defineDayIndex(dayName)}
+      getItemLayout={(_, index) => ({
+        length: width / 7,
+        offset: (width / 7) * index,
+        index,
+      })}
       horizontal={true}
       showsHorizontalScrollIndicator={false}
       style={{

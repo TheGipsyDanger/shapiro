@@ -13,8 +13,6 @@ export const Home = (props: IHome) => {
     date: { dayName },
   } = useDate();
 
-  dayName = dayName.toLowerCase();
-
   const Days = createDaysFactory(days);
 
   const selectDay = (day: IDayNames) => {
@@ -25,6 +23,7 @@ export const Home = (props: IHome) => {
 
   const layoutProps = {
     ...props,
+    dayName,
     selectDay,
     goToCamera: () => navigate('ShapiroCamera'),
     goToCreateEvent: () => navigate('CreateEvent'),

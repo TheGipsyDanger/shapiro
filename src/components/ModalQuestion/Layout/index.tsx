@@ -8,20 +8,16 @@ import { IModalQuestionLayout } from '@/ModalQuestion';
 
 export const ModalQuestion = ({ cancel, remove }: IModalQuestionLayout) => (
   <Wrapped testID={`ModalQuestion`}>
-    <ModalTitle>{'Deletar esse item?'}</ModalTitle>
-    <ModalDescription>
-      {
-        'As fotos ainda ficaram salvas no seu device, só não estará mais no shapiro.'
-      }
-    </ModalDescription>
+    <ModalTitle>{'Delete this event?'}</ModalTitle>
+    <ModalDescription>{'Photos remain on your device.'}</ModalDescription>
     <Wrapped flexDirection="row">
       <Wrapped flex={1} />
       <Wrapped flex={1}>
-        <Button title="Cancelar" onPress={cancel} type="clean" />
+        <Button title="Cancel" onPress={cancel} type="clean" />
       </Wrapped>
       <Wrapped mx={1} />
       <Wrapped flex={1}>
-        <Button title="Deletar" onPress={remove} />
+        <Button title="Delete" onPress={remove} />
       </Wrapped>
     </Wrapped>
   </Wrapped>

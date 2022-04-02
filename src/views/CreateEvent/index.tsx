@@ -6,11 +6,12 @@ import isEmpty from 'lodash/isEmpty';
 
 import { useEvent, useDate, useCreateEvent, useModal } from '~/hooks';
 import {
+  t,
   IDayNames,
+  IEditEvent,
   useCreateForm,
   createDaysFactory,
   createEventFactory,
-  IEditEvent,
 } from '~/utils';
 
 import { ICreateEvent } from '@/CreateEvent';
@@ -32,6 +33,18 @@ export const CreateEvent = (props: ICreateEvent) => {
 
   const [daySelected, setDaySelected] = useState(date.dayName.toLowerCase());
 
+  const hasEvent = !isEmpty(eventToEdit);
+
+  const text1 = t(
+    hasEvent ? 'ALERTS.UPDATED_SUCCESS_TITLE' : 'ALERTS.CREATED_SUCCESS_TITLE'
+  );
+
+  const text2 = t(
+    hasEvent
+      ? 'ALERTS.UPDATED_SUCCESS_SUBTITLE'
+      : 'ALERTS.CREATED_SUCCESS_SUBTITLE'
+  );
+
   const Days = createDaysFactory(days);
 
   useEffect(() => {
@@ -49,8 +62,6 @@ export const CreateEvent = (props: ICreateEvent) => {
   }, []);
 
   const form = useCreateForm(onSubmit, eventToEdit);
-
-  const hasEvent = !isEmpty(eventToEdit);
 
   function onSubmit() {
     const { values } = form;
@@ -75,8 +86,8 @@ export const CreateEvent = (props: ICreateEvent) => {
       navigation.goBack();
       Toast.show({
         type: 'success',
-        text1: `${values.name} ${hasEvent ? `updated` : `created`}`,
-        text2: `Successfully ${hasEvent ? `updated` : `created`} event.`,
+        text1: `${values.name} ${text1}`,
+        text2,
       });
     } else {
       Toast.show({
